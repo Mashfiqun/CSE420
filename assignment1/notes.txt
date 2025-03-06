@@ -1,0 +1,5 @@
+noyywrap option makes sure the program doesn't expect more files, as we're using a single file here.
+{ws} means I've defined ws somewhere, definitions
+if however means it's a token itself, we haven't defined it.
+operators for parsing are put into quotes because they have their own use in the .l or .y programs
+%nonassoc ELSE -> Look this up.
