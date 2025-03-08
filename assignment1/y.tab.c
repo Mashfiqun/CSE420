@@ -274,27 +274,28 @@ enum yysymbol_kind_t
   YYSYMBOL_COLON = 38,                     /* COLON  */
   YYSYMBOL_COMMA = 39,                     /* COMMA  */
   YYSYMBOL_YYACCEPT = 40,                  /* $accept  */
-  YYSYMBOL_program = 41,                   /* program  */
-  YYSYMBOL_unit = 42,                      /* unit  */
-  YYSYMBOL_func_definition = 43,           /* func_definition  */
-  YYSYMBOL_parameter_list = 44,            /* parameter_list  */
-  YYSYMBOL_compound_statement = 45,        /* compound_statement  */
-  YYSYMBOL_var_declaration = 46,           /* var_declaration  */
-  YYSYMBOL_type_specifier = 47,            /* type_specifier  */
-  YYSYMBOL_declaration_list = 48,          /* declaration_list  */
-  YYSYMBOL_statements = 49,                /* statements  */
-  YYSYMBOL_statement = 50,                 /* statement  */
-  YYSYMBOL_expression_statement = 51,      /* expression_statement  */
-  YYSYMBOL_variable = 52,                  /* variable  */
-  YYSYMBOL_expression = 53,                /* expression  */
-  YYSYMBOL_logic_expression = 54,          /* logic_expression  */
-  YYSYMBOL_rel_expression = 55,            /* rel_expression  */
-  YYSYMBOL_simple_expression = 56,         /* simple_expression  */
-  YYSYMBOL_term = 57,                      /* term  */
-  YYSYMBOL_unary_expression = 58,          /* unary_expression  */
-  YYSYMBOL_factor = 59,                    /* factor  */
-  YYSYMBOL_argument_list = 60,             /* argument_list  */
-  YYSYMBOL_arguments = 61                  /* arguments  */
+  YYSYMBOL_start = 41,                     /* start  */
+  YYSYMBOL_program = 42,                   /* program  */
+  YYSYMBOL_unit = 43,                      /* unit  */
+  YYSYMBOL_func_definition = 44,           /* func_definition  */
+  YYSYMBOL_parameter_list = 45,            /* parameter_list  */
+  YYSYMBOL_compound_statement = 46,        /* compound_statement  */
+  YYSYMBOL_var_declaration = 47,           /* var_declaration  */
+  YYSYMBOL_type_specifier = 48,            /* type_specifier  */
+  YYSYMBOL_declaration_list = 49,          /* declaration_list  */
+  YYSYMBOL_statements = 50,                /* statements  */
+  YYSYMBOL_statement = 51,                 /* statement  */
+  YYSYMBOL_expression_statement = 52,      /* expression_statement  */
+  YYSYMBOL_variable = 53,                  /* variable  */
+  YYSYMBOL_expression = 54,                /* expression  */
+  YYSYMBOL_logic_expression = 55,          /* logic_expression  */
+  YYSYMBOL_rel_expression = 56,            /* rel_expression  */
+  YYSYMBOL_simple_expression = 57,         /* simple_expression  */
+  YYSYMBOL_term = 58,                      /* term  */
+  YYSYMBOL_unary_expression = 59,          /* unary_expression  */
+  YYSYMBOL_factor = 60,                    /* factor  */
+  YYSYMBOL_argument_list = 61,             /* argument_list  */
+  YYSYMBOL_arguments = 62                  /* arguments  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -620,18 +621,18 @@ union yyalloc
 #endif /* !YYCOPY_NEEDED */
 
 /* YYFINAL -- State number of the termination state.  */
-#define YYFINAL  9
+#define YYFINAL  10
 /* YYLAST -- Last index in YYTABLE.  */
 #define YYLAST   159
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  40
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  22
+#define YYNNTS  23
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  58
+#define YYNRULES  59
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  113
+#define YYNSTATES  114
 
 /* YYMAXUTOK -- Last valid token kind.  */
 #define YYMAXUTOK   294
@@ -684,12 +685,12 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int16 yyrline[] =
 {
-       0,    27,    27,    32,    38,    43,    49,    54,    60,    66,
-      71,    75,    81,    85,    91,    97,   102,   107,   114,   119,
-     124,   129,   136,   141,   147,   152,   157,   162,   167,   172,
-     177,   182,   187,   193,   198,   204,   209,   215,   220,   226,
-     231,   237,   242,   248,   253,   259,   264,   270,   275,   280,
-     286,   291,   296,   301,   306,   311,   318,   327,   332
+       0,    27,    27,    34,    39,    45,    50,    56,    61,    67,
+      73,    78,    82,    88,    92,    98,   104,   109,   114,   121,
+     126,   131,   136,   143,   148,   154,   159,   164,   169,   174,
+     179,   184,   189,   194,   200,   205,   211,   216,   222,   227,
+     233,   238,   244,   249,   255,   260,   266,   271,   277,   282,
+     287,   293,   298,   303,   308,   313,   318,   325,   334,   339
 };
 #endif
 
@@ -710,12 +711,13 @@ static const char *const yytname[] =
   "GOTO", "CHAR", "DOUBLE", "RETURN", "CASE", "CONTINUE", "PRINTF",
   "CONST_INT", "CONST_FLOAT", "ID", "ADDOP", "MULOP", "INCOP", "RELOP",
   "ASSIGNOP", "LOGICOP", "NOT", "LPAREN", "RPAREN", "LCURL", "RCURL",
-  "LTHIRD", "RTHIRD", "SEMICOLON", "COLON", "COMMA", "$accept", "program",
-  "unit", "func_definition", "parameter_list", "compound_statement",
-  "var_declaration", "type_specifier", "declaration_list", "statements",
-  "statement", "expression_statement", "variable", "expression",
-  "logic_expression", "rel_expression", "simple_expression", "term",
-  "unary_expression", "factor", "argument_list", "arguments", YY_NULLPTR
+  "LTHIRD", "RTHIRD", "SEMICOLON", "COLON", "COMMA", "$accept", "start",
+  "program", "unit", "func_definition", "parameter_list",
+  "compound_statement", "var_declaration", "type_specifier",
+  "declaration_list", "statements", "statement", "expression_statement",
+  "variable", "expression", "logic_expression", "rel_expression",
+  "simple_expression", "term", "unary_expression", "factor",
+  "argument_list", "arguments", YY_NULLPTR
 };
 
 static const char *
@@ -725,7 +727,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-60)
+#define YYPACT_NINF (-57)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -739,18 +741,18 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int16 yypact[] =
 {
-      90,   -60,   -60,   -60,    49,   -60,   -60,   -60,   -18,   -60,
-     -60,   -14,     0,     3,   -15,   -60,     8,    13,   -16,    18,
-      15,    12,    52,   -60,    13,    90,   -60,   -60,    31,    33,
-      39,    40,    92,    46,   -60,   -60,   -13,    92,    92,    92,
-     -60,   -60,   -60,   -60,    61,    87,   -60,   -60,    67,    65,
-     -60,    74,     5,    80,   -60,   -60,   -60,    83,    76,    92,
-      92,    57,    82,   105,    92,    92,   103,   -60,   -60,    98,
-      99,   -60,   -60,   -60,    92,   -60,    92,    92,    92,    92,
-     -60,   -60,   104,   106,    57,   -60,   108,   -60,   109,    96,
-     101,   -60,   -60,   -60,    80,   123,   -60,   122,   122,    92,
-     111,   -60,    92,   -60,   143,   -60,   118,   -60,   -60,   122,
-     122,   -60,   -60
+      49,   -57,   -57,   -57,    26,    49,   -57,   -57,   -57,     8,
+     -57,   -57,     1,   -18,     3,    17,   -57,    23,    19,   -17,
+      41,    -2,    14,    52,   -57,    19,    49,   -57,   -57,    50,
+      39,    46,    53,    92,    62,   -57,   -57,    16,    92,    92,
+      92,   -57,   -57,   -57,   -57,    72,    87,   -57,   -57,    13,
+      63,   -57,    70,   -22,    76,   -57,   -57,   -57,    79,    67,
+      92,    92,    57,    68,    83,    92,    92,    86,   -57,   -57,
+      96,    84,   -57,   -57,   -57,    92,   -57,    92,    92,    92,
+      92,   -57,   -57,    97,    98,    57,   -57,   102,   -57,   103,
+      99,   100,   -57,   -57,   -57,    76,   113,   -57,   122,   122,
+      92,   104,   -57,    92,   -57,   134,   -57,   115,   -57,   -57,
+     122,   122,   -57,   -57
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -758,34 +760,34 @@ static const yytype_int16 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       0,    15,    16,    17,     0,     3,     5,     4,     0,     1,
-       2,    20,     0,     0,     0,    14,     0,     0,     0,    11,
-       0,    18,     0,     7,     0,     0,    10,    21,     0,     0,
-       0,     0,     0,     0,    53,    54,    35,     0,     0,     0,
-      13,    33,    26,    24,     0,     0,    22,    25,    50,     0,
-      37,    39,    41,    43,    45,    49,     6,     9,     0,     0,
-       0,     0,     0,     0,     0,     0,    50,    47,    48,     0,
-      20,    12,    23,    55,     0,    34,     0,     0,     0,     0,
-       8,    19,     0,     0,     0,    32,     0,    58,     0,    56,
-       0,    52,    38,    40,    44,    42,    46,     0,     0,     0,
-       0,    51,     0,    36,    28,    30,     0,    31,    57,     0,
-       0,    29,    27
+       0,    16,    17,    18,     0,     2,     4,     6,     5,     0,
+       1,     3,    21,     0,     0,     0,    15,     0,     0,     0,
+      12,     0,    19,     0,     8,     0,     0,    11,    22,     0,
+       0,     0,     0,     0,     0,    54,    55,    36,     0,     0,
+       0,    14,    34,    27,    25,     0,     0,    23,    26,    51,
+       0,    38,    40,    42,    44,    46,    50,     7,    10,     0,
+       0,     0,     0,     0,     0,     0,     0,    51,    48,    49,
+       0,    21,    13,    24,    56,     0,    35,     0,     0,     0,
+       0,     9,    20,     0,     0,     0,    33,     0,    59,     0,
+      57,     0,    53,    39,    41,    45,    43,    47,     0,     0,
+       0,     0,    52,     0,    37,    29,    31,     0,    32,    58,
+       0,     0,    30,    28
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int16 yypgoto[] =
 {
-     -60,   -60,   147,   -60,   -60,     2,    34,    11,   -60,   -60,
-     -44,   -59,   -34,   -32,   -54,    78,    79,    81,   -29,   -60,
-     -60,   -60
+     -57,   -57,   -57,   143,   -57,   -57,    -1,    18,    11,   -57,
+     -57,   -45,   -56,   -35,   -33,   -55,    73,    75,    71,   -30,
+     -57,   -57,   -57
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     4,     5,     6,    18,    42,    43,    44,    12,    45,
+       0,     4,     5,     6,     7,    19,    43,    44,    45,    13,
       46,    47,    48,    49,    50,    51,    52,    53,    54,    55,
-      88,    89
+      56,    89,    90
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -793,82 +795,82 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-      62,    72,    84,    66,    66,    11,    20,    69,    67,    68,
-      87,     8,     1,     2,     3,     8,    24,    13,    64,    23,
-      92,    14,    65,    25,    19,    99,    56,    82,    83,    77,
-      66,    21,    78,    90,     7,    17,    57,    15,     7,    16,
-      66,    26,    66,    66,    66,    66,    22,    28,   108,     9,
-      96,    27,    58,   104,   105,    29,    30,    31,     1,     2,
-       3,     1,     2,     3,    59,   111,   112,   106,    66,    32,
-      60,    61,    33,    34,    35,    36,    37,    63,    34,    35,
-      36,    37,    38,    39,    70,    22,    40,    38,    39,    41,
-      29,    30,    31,    73,    41,    74,     1,     2,     3,     1,
-       2,     3,    75,    76,    32,    79,    80,    33,    34,    35,
-      36,    37,    81,    34,    35,    36,    37,    38,    39,    85,
-      22,    71,    38,    39,    41,    29,    30,    31,    86,    73,
-      91,     1,     2,     3,    14,   102,    97,   103,    98,    32,
-     100,   101,    33,    34,    35,    36,    37,    77,   107,   109,
-     110,    10,    38,    39,    93,    22,     0,    95,    94,    41
+      63,    73,    78,    67,    67,    79,    85,    70,    68,    69,
+      88,     9,     1,     2,     3,    25,     9,    24,     8,    16,
+      93,    17,    26,     8,    57,    20,    10,    83,    84,   100,
+      67,    12,    14,    91,    28,    18,    15,    58,    21,    74,
+      67,    75,    67,    67,    67,    67,    22,    65,   109,    29,
+      97,    66,    23,   105,   106,    30,    31,    32,     1,     2,
+       3,     1,     2,     3,    27,   112,   113,   107,    67,    33,
+      60,    59,    34,    35,    36,    37,    38,    61,    35,    36,
+      37,    38,    39,    40,    62,    23,    41,    39,    40,    42,
+      30,    31,    32,    64,    42,    71,     1,     2,     3,    77,
+      76,    80,    81,    82,    33,    86,    87,    34,    35,    36,
+      37,    38,    74,    35,    36,    37,    38,    39,    40,    15,
+      23,    72,    39,    40,    42,    30,    31,    32,    92,    98,
+      99,     1,     2,     3,   101,   102,   104,    78,   103,    33,
+     110,   108,    34,    35,    36,    37,    38,   111,    11,    95,
+      94,     0,    39,    40,    96,    23,     0,     0,     0,    42
 };
 
 static const yytype_int8 yycheck[] =
 {
-      32,    45,    61,    37,    38,    23,    21,    39,    37,    38,
-      64,     0,     9,    10,    11,     4,    32,    31,    31,    17,
-      74,    35,    35,    39,    13,    84,    24,    59,    60,    24,
-      64,    23,    27,    65,     0,    32,    25,    37,     4,    39,
-      74,    23,    76,    77,    78,    79,    33,    35,   102,     0,
-      79,    36,    21,    97,    98,     3,     4,     5,     9,    10,
-      11,     9,    10,    11,    31,   109,   110,    99,   102,    17,
-      31,    31,    20,    21,    22,    23,    24,    31,    21,    22,
-      23,    24,    30,    31,    23,    33,    34,    30,    31,    37,
-       3,     4,     5,    26,    37,    28,     9,    10,    11,     9,
-      10,    11,    37,    29,    17,    25,    23,    20,    21,    22,
-      23,    24,    36,    21,    22,    23,    24,    30,    31,    37,
-      33,    34,    30,    31,    37,     3,     4,     5,    23,    26,
-      32,     9,    10,    11,    35,    39,    32,    36,    32,    17,
-      32,    32,    20,    21,    22,    23,    24,    24,    37,     6,
-      32,     4,    30,    31,    76,    33,    -1,    78,    77,    37
+      33,    46,    24,    38,    39,    27,    62,    40,    38,    39,
+      65,     0,     9,    10,    11,    32,     5,    18,     0,    37,
+      75,    39,    39,     5,    25,    14,     0,    60,    61,    85,
+      65,    23,    31,    66,    36,    32,    35,    26,    21,    26,
+      75,    28,    77,    78,    79,    80,    23,    31,   103,    35,
+      80,    35,    33,    98,    99,     3,     4,     5,     9,    10,
+      11,     9,    10,    11,    23,   110,   111,   100,   103,    17,
+      31,    21,    20,    21,    22,    23,    24,    31,    21,    22,
+      23,    24,    30,    31,    31,    33,    34,    30,    31,    37,
+       3,     4,     5,    31,    37,    23,     9,    10,    11,    29,
+      37,    25,    23,    36,    17,    37,    23,    20,    21,    22,
+      23,    24,    26,    21,    22,    23,    24,    30,    31,    35,
+      33,    34,    30,    31,    37,     3,     4,     5,    32,    32,
+      32,     9,    10,    11,    32,    32,    36,    24,    39,    17,
+       6,    37,    20,    21,    22,    23,    24,    32,     5,    78,
+      77,    -1,    30,    31,    79,    33,    -1,    -1,    -1,    37
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,     9,    10,    11,    41,    42,    43,    46,    47,     0,
-      42,    23,    48,    31,    35,    37,    39,    32,    44,    47,
-      21,    23,    33,    45,    32,    39,    23,    36,    35,     3,
-       4,     5,    17,    20,    21,    22,    23,    24,    30,    31,
-      34,    37,    45,    46,    47,    49,    50,    51,    52,    53,
-      54,    55,    56,    57,    58,    59,    45,    47,    21,    31,
-      31,    31,    53,    31,    31,    35,    52,    58,    58,    53,
-      23,    34,    50,    26,    28,    37,    29,    24,    27,    25,
-      23,    36,    53,    53,    51,    37,    23,    54,    60,    61,
-      53,    32,    54,    55,    57,    56,    58,    32,    32,    51,
-      32,    32,    39,    36,    50,    50,    53,    37,    54,     6,
-      32,    50,    50
+       0,     9,    10,    11,    41,    42,    43,    44,    47,    48,
+       0,    43,    23,    49,    31,    35,    37,    39,    32,    45,
+      48,    21,    23,    33,    46,    32,    39,    23,    36,    35,
+       3,     4,     5,    17,    20,    21,    22,    23,    24,    30,
+      31,    34,    37,    46,    47,    48,    50,    51,    52,    53,
+      54,    55,    56,    57,    58,    59,    60,    46,    48,    21,
+      31,    31,    31,    54,    31,    31,    35,    53,    59,    59,
+      54,    23,    34,    51,    26,    28,    37,    29,    24,    27,
+      25,    23,    36,    54,    54,    52,    37,    23,    55,    61,
+      62,    54,    32,    55,    56,    58,    57,    59,    32,    32,
+      52,    32,    32,    39,    36,    51,    51,    54,    37,    55,
+       6,    32,    51,    51
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    40,    41,    41,    42,    42,    43,    43,    44,    44,
-      44,    44,    45,    45,    46,    47,    47,    47,    48,    48,
-      48,    48,    49,    49,    50,    50,    50,    50,    50,    50,
-      50,    50,    50,    51,    51,    52,    52,    53,    53,    54,
-      54,    55,    55,    56,    56,    57,    57,    58,    58,    58,
-      59,    59,    59,    59,    59,    59,    60,    61,    61
+       0,    40,    41,    42,    42,    43,    43,    44,    44,    45,
+      45,    45,    45,    46,    46,    47,    48,    48,    48,    49,
+      49,    49,    49,    50,    50,    51,    51,    51,    51,    51,
+      51,    51,    51,    51,    52,    52,    53,    53,    54,    54,
+      55,    55,    56,    56,    57,    57,    58,    58,    59,    59,
+      59,    60,    60,    60,    60,    60,    60,    61,    62,    62
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     2,     1,     1,     1,     6,     5,     4,     3,
-       2,     1,     3,     2,     3,     1,     1,     1,     3,     6,
-       1,     4,     1,     2,     1,     1,     1,     7,     5,     7,
-       5,     5,     3,     1,     2,     1,     4,     1,     3,     1,
-       3,     1,     3,     1,     3,     1,     3,     2,     2,     1,
-       1,     4,     3,     1,     1,     2,     1,     3,     1
+       0,     2,     1,     2,     1,     1,     1,     6,     5,     4,
+       3,     2,     1,     3,     2,     3,     1,     1,     1,     3,
+       6,     1,     4,     1,     2,     1,     1,     1,     7,     5,
+       7,     5,     5,     3,     1,     2,     1,     4,     1,     3,
+       1,     3,     1,     3,     1,     3,     1,     3,     2,     2,
+       1,     1,     4,     3,     1,     1,     2,     1,     3,     1
 };
 
 
@@ -1331,615 +1333,626 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-  case 2: /* program: program unit  */
+  case 2: /* start: program  */
 #line 27 "syntax_analyzer.y"
+               {
+	outlog<<"At line no: "<<lines<<" start : program"<<endl<<endl;
+	outlog<<yyvsp[0]->getname()<<endl<<endl;
+		
+	yyval = new symbol_info(yyvsp[0]->getname(), "start");
+}
+#line 1345 "y.tab.c"
+    break;
+
+  case 3: /* program: program unit  */
+#line 34 "syntax_analyzer.y"
                       {
 		outlog<<"At line no: "<<lines<<" program : program unit "<<endl<<endl;
 		outlog<<yyvsp[-1]->getname()+"\n"+yyvsp[0]->getname()<<endl<<endl;
 		
 		yyval = new symbol_info(yyvsp[-1]->getname()+"\n"+yyvsp[0]->getname(),"program");
 	}
-#line 1343 "y.tab.c"
+#line 1356 "y.tab.c"
     break;
 
-  case 3: /* program: unit  */
-#line 32 "syntax_analyzer.y"
+  case 4: /* program: unit  */
+#line 39 "syntax_analyzer.y"
                  {
 		outlog<<"At line no: "<<lines<<" program : unit "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"program");
 	}
-#line 1353 "y.tab.c"
+#line 1366 "y.tab.c"
     break;
 
-  case 4: /* unit: var_declaration  */
-#line 38 "syntax_analyzer.y"
+  case 5: /* unit: var_declaration  */
+#line 45 "syntax_analyzer.y"
                        {
 		outlog<<"At line no: "<<lines<<" unit : var_declaration "<<endl<<endl;
 	    outlog<<yyvsp[0]->getname()<<endl<<endl;
 	    yyval = new symbol_info(yyvsp[0]->getname(),"unit");
 
 	}
-#line 1364 "y.tab.c"
+#line 1377 "y.tab.c"
     break;
 
-  case 5: /* unit: func_definition  */
-#line 43 "syntax_analyzer.y"
+  case 6: /* unit: func_definition  */
+#line 50 "syntax_analyzer.y"
                             {
 		outlog<<"At line no: "<<lines<<" unit : func_definition "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"unit");
 	}
-#line 1374 "y.tab.c"
+#line 1387 "y.tab.c"
     break;
 
-  case 6: /* func_definition: type_specifier ID LPAREN parameter_list RPAREN compound_statement  */
-#line 49 "syntax_analyzer.y"
+  case 7: /* func_definition: type_specifier ID LPAREN parameter_list RPAREN compound_statement  */
+#line 56 "syntax_analyzer.y"
                                                                                     {	
 		outlog<<"At line no: "<<lines<<" func_definition : type_specifier ID LPAREN parameter_list RPAREN compound_statement "<<endl<<endl;
 		outlog<<yyvsp[-5]->getname()<<" "<<yyvsp[-4]->getname()<<"("<<yyvsp[-2]->getname()<<")\n"<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[-5]->getname()+" "+yyvsp[-4]->getname()+"("+yyvsp[-2]->getname()+")\n"+yyvsp[0]->getname(),"func_definition");
 
 	}
-#line 1385 "y.tab.c"
+#line 1398 "y.tab.c"
     break;
 
-  case 7: /* func_definition: type_specifier ID LPAREN RPAREN compound_statement  */
-#line 54 "syntax_analyzer.y"
+  case 8: /* func_definition: type_specifier ID LPAREN RPAREN compound_statement  */
+#line 61 "syntax_analyzer.y"
                                                                {
 		outlog<<"At line no: "<<lines<<" func_definition : type_specifier ID LPAREN RPAREN compound_statement "<<endl<<endl;
 		outlog<<yyvsp[-4]->getname()<<" "<<yyvsp[-3]->getname()<<"()\n"<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[-4]->getname()+" "+yyvsp[-3]->getname()+"()\n"+yyvsp[0]->getname(),"func_definition");	
 	}
-#line 1395 "y.tab.c"
+#line 1408 "y.tab.c"
     break;
 
-  case 8: /* parameter_list: parameter_list COMMA type_specifier ID  */
-#line 61 "syntax_analyzer.y"
+  case 9: /* parameter_list: parameter_list COMMA type_specifier ID  */
+#line 68 "syntax_analyzer.y"
         {
 		outlog<<"At line no: "<<lines<<" parameter_list : parameter_list COMMA type_specifier ID "<<endl<<endl;
 		outlog<<yyvsp[-3]->getname()<<","<<yyvsp[-1]->getname()<<" "<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[-3]->getname()+","+yyvsp[-1]->getname()+" "+yyvsp[0]->getname(),"parameter_list");
 
 	}
-#line 1406 "y.tab.c"
+#line 1419 "y.tab.c"
     break;
 
-  case 9: /* parameter_list: parameter_list COMMA type_specifier  */
-#line 66 "syntax_analyzer.y"
+  case 10: /* parameter_list: parameter_list COMMA type_specifier  */
+#line 73 "syntax_analyzer.y"
                                                 {
 		outlog<<"At line no: "<<lines<<" parameter_list : parameter_list COMMA type_specifier "<<endl<<endl;
 		outlog<<yyvsp[-2]->getname()<<", "<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[-2]->getname()+", "+yyvsp[0]->getname(),"parameter_list");
 
 	}
-#line 1417 "y.tab.c"
+#line 1430 "y.tab.c"
     break;
 
-  case 10: /* parameter_list: type_specifier ID  */
-#line 71 "syntax_analyzer.y"
+  case 11: /* parameter_list: type_specifier ID  */
+#line 78 "syntax_analyzer.y"
                               {
 		outlog<<"At line no: "<<lines<<" parameter_list : type_specifier ID "<<endl<<endl;
 		outlog<<yyvsp[-1]->getname()<<" "<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[-1]->getname()+" "+yyvsp[0]->getname(),"parameter_list");
 	}
-#line 1427 "y.tab.c"
+#line 1440 "y.tab.c"
     break;
 
-  case 11: /* parameter_list: type_specifier  */
-#line 75 "syntax_analyzer.y"
+  case 12: /* parameter_list: type_specifier  */
+#line 82 "syntax_analyzer.y"
                            {
 		outlog<<"At line no: "<<lines<<" parameter_list : type_specifier "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"parameter_list");
 	}
-#line 1437 "y.tab.c"
+#line 1450 "y.tab.c"
     break;
 
-  case 12: /* compound_statement: LCURL statements RCURL  */
-#line 81 "syntax_analyzer.y"
+  case 13: /* compound_statement: LCURL statements RCURL  */
+#line 88 "syntax_analyzer.y"
                                             {
 		outlog<<"At line no: "<<lines<<" compound_statement : LCURL statements RCURL "<<endl<<endl;
 		outlog<<"{\n"<<yyvsp[-1]->getname()<<"\n}"<<endl<<endl;
 		yyval = new symbol_info("{\n"+yyvsp[-1]->getname()+"\n}","compound_statement");
 	}
-#line 1447 "y.tab.c"
+#line 1460 "y.tab.c"
     break;
 
-  case 13: /* compound_statement: LCURL RCURL  */
-#line 85 "syntax_analyzer.y"
+  case 14: /* compound_statement: LCURL RCURL  */
+#line 92 "syntax_analyzer.y"
                         {
 		outlog<<"At line no: "<<lines<<" compound_statement : LCURL RCURL "<<endl<<endl;
 		outlog<<"{\n}"<<endl<<endl;
 		yyval = new symbol_info("{\n}","compound_statement");
 	}
-#line 1457 "y.tab.c"
+#line 1470 "y.tab.c"
     break;
 
-  case 14: /* var_declaration: type_specifier declaration_list SEMICOLON  */
-#line 91 "syntax_analyzer.y"
-                                                           {
+  case 15: /* var_declaration: type_specifier declaration_list SEMICOLON  */
+#line 98 "syntax_analyzer.y"
+                                                            {
 		outlog<<"At line no: "<<lines<<" var_declaration : type_specifier declaration_list SEMICOLON "<<endl<<endl;
 		outlog<<yyvsp[-2]->getname()<<" "<<yyvsp[-1]->getname()<<";"<<endl<<endl;
 		yyval = new symbol_info(yyvsp[-2]->getname()+" "+yyvsp[-1]->getname()+";","var_declaration");
 	}
-#line 1467 "y.tab.c"
+#line 1480 "y.tab.c"
     break;
 
-  case 15: /* type_specifier: INT  */
-#line 97 "syntax_analyzer.y"
-                    {
+  case 16: /* type_specifier: INT  */
+#line 104 "syntax_analyzer.y"
+                     {
 		outlog<<"At line no: "<<lines<<" type_specifier : INT "<<endl<<endl;
 		outlog<<"int"<<endl<<endl;
 		yyval = new symbol_info("int","type_specifier");
 
 	}
-#line 1478 "y.tab.c"
+#line 1491 "y.tab.c"
     break;
 
-  case 16: /* type_specifier: FLOAT  */
-#line 102 "syntax_analyzer.y"
+  case 17: /* type_specifier: FLOAT  */
+#line 109 "syntax_analyzer.y"
                   {
 		outlog<<"At line no: "<<lines<<" type_specifier : FLOAT "<<endl<<endl;
 		outlog<<"float"<<endl<<endl;
 		yyval = new symbol_info("float","type_specifier");
 
 	}
-#line 1489 "y.tab.c"
+#line 1502 "y.tab.c"
     break;
 
-  case 17: /* type_specifier: VOID  */
-#line 107 "syntax_analyzer.y"
+  case 18: /* type_specifier: VOID  */
+#line 114 "syntax_analyzer.y"
                  {
 		outlog<<"At line no: "<<lines<<" type_specifier : VOID "<<endl<<endl;
 		outlog<<"void"<<endl<<endl;
 		yyval = new symbol_info("void","type_specifier");
 
 	}
-#line 1500 "y.tab.c"
+#line 1513 "y.tab.c"
     break;
 
-  case 18: /* declaration_list: declaration_list COMMA ID  */
-#line 114 "syntax_analyzer.y"
+  case 19: /* declaration_list: declaration_list COMMA ID  */
+#line 121 "syntax_analyzer.y"
                                              {
 		outlog<<"At line no: "<<lines<<" declaration_list : declaration_list COMMA ID "<<endl<<endl;
 		outlog<<yyvsp[-2]->getname()<<","<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[-2]->getname()+","+yyvsp[0]->getname(),"declaration_list");
 
 	}
-#line 1511 "y.tab.c"
+#line 1524 "y.tab.c"
     break;
 
-  case 19: /* declaration_list: declaration_list COMMA ID LTHIRD CONST_INT RTHIRD  */
-#line 119 "syntax_analyzer.y"
+  case 20: /* declaration_list: declaration_list COMMA ID LTHIRD CONST_INT RTHIRD  */
+#line 126 "syntax_analyzer.y"
                                                               {
 		outlog<<"At line no: "<<lines<<" declaration_list : declaration_list COMMA ID LTHIRD CONST_INT RTHIRD "<<endl<<endl;
 		outlog<<yyvsp[-5]->getname()<<","<<yyvsp[-3]->getname()<<"["<<yyvsp[-1]->getname()<<"]"<<endl<<endl;
 		yyval = new symbol_info(yyvsp[-5]->getname()+","+yyvsp[-3]->getname()+"["+yyvsp[-1]->getname()+"]","declaration_list");
 
 	}
-#line 1522 "y.tab.c"
+#line 1535 "y.tab.c"
     break;
 
-  case 20: /* declaration_list: ID  */
-#line 124 "syntax_analyzer.y"
+  case 21: /* declaration_list: ID  */
+#line 131 "syntax_analyzer.y"
                {
 		outlog<<"At line no: "<<lines<<" declaration_list : ID "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"declaration_list");
 
 	}
-#line 1533 "y.tab.c"
+#line 1546 "y.tab.c"
     break;
 
-  case 21: /* declaration_list: ID LTHIRD CONST_INT RTHIRD  */
-#line 130 "syntax_analyzer.y"
+  case 22: /* declaration_list: ID LTHIRD CONST_INT RTHIRD  */
+#line 137 "syntax_analyzer.y"
         {
 		outlog<<"At line no: "<<lines<<" declaration_list : ID LTHIRD CONST_INT RTHIRD "<<endl<<endl;
 		outlog<<yyvsp[-3]->getname()<<"["<<yyvsp[-1]->getname()<<"]"<<endl<<endl;
 		yyval = new symbol_info(yyvsp[-3]->getname()+"["+yyvsp[-1]->getname()+"]","declaration_list");
 	}
-#line 1543 "y.tab.c"
+#line 1556 "y.tab.c"
     break;
 
-  case 22: /* statements: statement  */
-#line 136 "syntax_analyzer.y"
+  case 23: /* statements: statement  */
+#line 143 "syntax_analyzer.y"
                        {
 		outlog<<"At line no: "<<lines<<" statements : statement "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"statements");
 
 	}
-#line 1554 "y.tab.c"
+#line 1567 "y.tab.c"
     break;
 
-  case 23: /* statements: statements statement  */
-#line 141 "syntax_analyzer.y"
+  case 24: /* statements: statements statement  */
+#line 148 "syntax_analyzer.y"
                                  {
 		outlog<<"At line no: "<<lines<<" statements : statements statement "<<endl<<endl;
 		outlog<<yyvsp[-1]->getname()<<"\n"<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[-1]->getname()+"\n"+yyvsp[0]->getname(),"statements");
 	}
-#line 1564 "y.tab.c"
+#line 1577 "y.tab.c"
     break;
 
-  case 24: /* statement: var_declaration  */
-#line 147 "syntax_analyzer.y"
+  case 25: /* statement: var_declaration  */
+#line 154 "syntax_analyzer.y"
                             {
 		outlog<<"At line no: "<<lines<<" statement : var_declaration "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"statement");
 
 	}
-#line 1575 "y.tab.c"
+#line 1588 "y.tab.c"
     break;
 
-  case 25: /* statement: expression_statement  */
-#line 152 "syntax_analyzer.y"
+  case 26: /* statement: expression_statement  */
+#line 159 "syntax_analyzer.y"
                                  {
 		outlog<<"At line no: "<<lines<<" statement : expression_statement "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"statement");
 	
     }
-#line 1586 "y.tab.c"
+#line 1599 "y.tab.c"
     break;
 
-  case 26: /* statement: compound_statement  */
-#line 157 "syntax_analyzer.y"
+  case 27: /* statement: compound_statement  */
+#line 164 "syntax_analyzer.y"
                            {
 		outlog<<"At line no: "<<lines<<" statement : compound_statement "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"statement");
 
 	}
-#line 1597 "y.tab.c"
+#line 1610 "y.tab.c"
     break;
 
-  case 27: /* statement: FOR LPAREN expression_statement expression_statement expression RPAREN statement  */
-#line 162 "syntax_analyzer.y"
+  case 28: /* statement: FOR LPAREN expression_statement expression_statement expression RPAREN statement  */
+#line 169 "syntax_analyzer.y"
                                                                                              {
 		outlog<<"At line no: "<<lines<<" statement : FOR LPAREN expression_statement expression_statement expression RPAREN statement "<<endl<<endl;
 		outlog<<"for("<<yyvsp[-4]->getname()<<yyvsp[-3]->getname()<<yyvsp[-2]->getname()<<")\n"<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info("for("+yyvsp[-4]->getname()+yyvsp[-3]->getname()+yyvsp[-2]->getname()+")\n"+yyvsp[0]->getname(),"statement");
 	
     }
-#line 1608 "y.tab.c"
+#line 1621 "y.tab.c"
     break;
 
-  case 28: /* statement: IF LPAREN expression RPAREN statement  */
-#line 167 "syntax_analyzer.y"
+  case 29: /* statement: IF LPAREN expression RPAREN statement  */
+#line 174 "syntax_analyzer.y"
                                                                   {
 		outlog<<"At line no: "<<lines<<" statement : IF LPAREN expression RPAREN statement "<<endl<<endl;
 		outlog<<"if("<<yyvsp[-2]->getname()<<")\n"<<yyvsp[0]->getname()<<endl<<endl;	
 		yyval = new symbol_info("if("+yyvsp[-2]->getname()+")\n"+yyvsp[0]->getname(),"statement");
 	
     }
-#line 1619 "y.tab.c"
+#line 1632 "y.tab.c"
     break;
 
-  case 29: /* statement: IF LPAREN expression RPAREN statement ELSE statement  */
-#line 172 "syntax_analyzer.y"
+  case 30: /* statement: IF LPAREN expression RPAREN statement ELSE statement  */
+#line 179 "syntax_analyzer.y"
                                                                                    {
 		outlog<<"At line no: "<<lines<<" statement : IF LPAREN expression RPAREN statement ELSE statement "<<endl<<endl;
 		outlog<<"if("<<yyvsp[-4]->getname()<<")\n"<<yyvsp[-2]->getname()<<"\n"<<"else\n"<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info("if("+yyvsp[-4]->getname()+")\n"+yyvsp[-2]->getname()+"\nelse\n"+yyvsp[0]->getname(),"statement");
 	
     }
-#line 1630 "y.tab.c"
+#line 1643 "y.tab.c"
     break;
 
-  case 30: /* statement: WHILE LPAREN expression RPAREN statement  */
-#line 177 "syntax_analyzer.y"
+  case 31: /* statement: WHILE LPAREN expression RPAREN statement  */
+#line 184 "syntax_analyzer.y"
                                                  {
 		outlog<<"At line no: "<<lines<<" statement : WHILE LPAREN expression RPAREN statement "<<endl<<endl;
 		outlog<<"while("<<yyvsp[-2]->getname()<<")\n"<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info("while("+yyvsp[-2]->getname()+")\n"+yyvsp[0]->getname(),"statement");
 	
     }
-#line 1641 "y.tab.c"
+#line 1654 "y.tab.c"
     break;
 
-  case 31: /* statement: PRINTF LPAREN ID RPAREN SEMICOLON  */
-#line 182 "syntax_analyzer.y"
+  case 32: /* statement: PRINTF LPAREN ID RPAREN SEMICOLON  */
+#line 189 "syntax_analyzer.y"
                                           {
 		outlog<<"At line no: "<<lines<<" statement : PRINTF LPAREN ID RPAREN SEMICOLON "<<endl<<endl;
 		outlog<<"printf("<<yyvsp[-2]->getname()<<");"<<endl<<endl;
 		yyval = new symbol_info("printf("+yyvsp[-2]->getname()+");","statement");
 	
     }
-#line 1652 "y.tab.c"
+#line 1665 "y.tab.c"
     break;
 
-  case 32: /* statement: RETURN expression SEMICOLON  */
-#line 187 "syntax_analyzer.y"
+  case 33: /* statement: RETURN expression SEMICOLON  */
+#line 194 "syntax_analyzer.y"
                                     {
 		outlog<<"At line no: "<<lines<<" statement : RETURN expression SEMICOLON "<<endl<<endl;
 		outlog<<"return "<<yyvsp[-1]->getname()<<";"<<endl<<endl;
 		yyval = new symbol_info("return "+yyvsp[-1]->getname()+";","statement");
 	}
-#line 1662 "y.tab.c"
+#line 1675 "y.tab.c"
     break;
 
-  case 33: /* expression_statement: SEMICOLON  */
-#line 193 "syntax_analyzer.y"
+  case 34: /* expression_statement: SEMICOLON  */
+#line 200 "syntax_analyzer.y"
                                  {
 		outlog<<"At line no: "<<lines<<" expression_statement : SEMICOLON "<<endl<<endl;
 		outlog<<";"<<endl<<endl;
 		yyval = new symbol_info(";","expression_statement");
 	
     }
-#line 1673 "y.tab.c"
+#line 1686 "y.tab.c"
     break;
 
-  case 34: /* expression_statement: expression SEMICOLON  */
-#line 198 "syntax_analyzer.y"
+  case 35: /* expression_statement: expression SEMICOLON  */
+#line 205 "syntax_analyzer.y"
                              {
 		outlog<<"At line no: "<<lines<<" expression_statement : expression SEMICOLON "<<endl<<endl;
 		outlog<<yyvsp[-1]->getname()<<";"<<endl<<endl;	
 		yyval = new symbol_info(yyvsp[-1]->getname()+";","expression_statement");
 	}
-#line 1683 "y.tab.c"
+#line 1696 "y.tab.c"
     break;
 
-  case 35: /* variable: ID  */
-#line 204 "syntax_analyzer.y"
+  case 36: /* variable: ID  */
+#line 211 "syntax_analyzer.y"
               {
 		outlog<<"At line no: "<<lines<<" variable : ID "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"variable");
 	
     }
-#line 1694 "y.tab.c"
+#line 1707 "y.tab.c"
     break;
 
-  case 36: /* variable: ID LTHIRD expression RTHIRD  */
-#line 209 "syntax_analyzer.y"
+  case 37: /* variable: ID LTHIRD expression RTHIRD  */
+#line 216 "syntax_analyzer.y"
                                     {
 		outlog<<"At line no: "<<lines<<" variable : ID LTHIRD expression RTHIRD "<<endl<<endl;
 		outlog<<yyvsp[-3]->getname()<<"["<<yyvsp[-1]->getname()<<"]"<<endl<<endl;	
 		yyval = new symbol_info(yyvsp[-3]->getname()+"["+yyvsp[-1]->getname()+"]","variable");
 	}
-#line 1704 "y.tab.c"
+#line 1717 "y.tab.c"
     break;
 
-  case 37: /* expression: logic_expression  */
-#line 215 "syntax_analyzer.y"
+  case 38: /* expression: logic_expression  */
+#line 222 "syntax_analyzer.y"
                               {
 		outlog<<"At line no: "<<lines<<" expression : logic_expression "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"expression");
 	
     }
-#line 1715 "y.tab.c"
+#line 1728 "y.tab.c"
     break;
 
-  case 38: /* expression: variable ASSIGNOP logic_expression  */
-#line 220 "syntax_analyzer.y"
+  case 39: /* expression: variable ASSIGNOP logic_expression  */
+#line 227 "syntax_analyzer.y"
                                            {
 		outlog<<"At line no: "<<lines<<" expression : variable ASSIGNOP logic_expression "<<endl<<endl;
 		outlog<<yyvsp[-2]->getname()<<"="<<yyvsp[0]->getname()<<endl<<endl;	
 		yyval = new symbol_info(yyvsp[-2]->getname()+"="+yyvsp[0]->getname(),"expression");
 	}
-#line 1725 "y.tab.c"
+#line 1738 "y.tab.c"
     break;
 
-  case 39: /* logic_expression: rel_expression  */
-#line 226 "syntax_analyzer.y"
+  case 40: /* logic_expression: rel_expression  */
+#line 233 "syntax_analyzer.y"
                                   {
 		outlog<<"At line no: "<<lines<<" logic_expression : rel_expression "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"logic_expression");
 
 	}
-#line 1736 "y.tab.c"
+#line 1749 "y.tab.c"
     break;
 
-  case 40: /* logic_expression: rel_expression LOGICOP rel_expression  */
-#line 231 "syntax_analyzer.y"
+  case 41: /* logic_expression: rel_expression LOGICOP rel_expression  */
+#line 238 "syntax_analyzer.y"
                                                   {
 		outlog<<"At line no: "<<lines<<" logic_expression : rel_expression LOGICOP rel_expression "<<endl<<endl;
 		outlog<<yyvsp[-2]->getname()<<yyvsp[-1]->getname()<<yyvsp[0]->getname()<<endl<<endl;		
 		yyval = new symbol_info(yyvsp[-2]->getname()+yyvsp[-1]->getname()+yyvsp[0]->getname(),"logic_expression");
 	}
-#line 1746 "y.tab.c"
+#line 1759 "y.tab.c"
     break;
 
-  case 41: /* rel_expression: simple_expression  */
-#line 237 "syntax_analyzer.y"
+  case 42: /* rel_expression: simple_expression  */
+#line 244 "syntax_analyzer.y"
                                    {
 		outlog<<"At line no: "<<lines<<" rel_expression : simple_expression "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"rel_expression");
 	
     }
-#line 1757 "y.tab.c"
+#line 1770 "y.tab.c"
     break;
 
-  case 42: /* rel_expression: simple_expression RELOP simple_expression  */
-#line 242 "syntax_analyzer.y"
+  case 43: /* rel_expression: simple_expression RELOP simple_expression  */
+#line 249 "syntax_analyzer.y"
                                                   {
 		outlog<<"At line no: "<<lines<<" rel_expression : simple_expression RELOP simple_expression "<<endl<<endl;
 		outlog<<yyvsp[-2]->getname()<<yyvsp[-1]->getname()<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[-2]->getname()+yyvsp[-1]->getname()+yyvsp[0]->getname(),"rel_expression");
 	}
-#line 1767 "y.tab.c"
+#line 1780 "y.tab.c"
     break;
 
-  case 43: /* simple_expression: term  */
-#line 248 "syntax_analyzer.y"
+  case 44: /* simple_expression: term  */
+#line 255 "syntax_analyzer.y"
                          {
 		outlog<<"At line no: "<<lines<<" simple_expression : term "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"simple_expression");
 	
     }
-#line 1778 "y.tab.c"
+#line 1791 "y.tab.c"
     break;
 
-  case 44: /* simple_expression: simple_expression ADDOP term  */
-#line 253 "syntax_analyzer.y"
+  case 45: /* simple_expression: simple_expression ADDOP term  */
+#line 260 "syntax_analyzer.y"
                                      {
 		outlog<<"At line no: "<<lines<<" simple_expression : simple_expression ADDOP term "<<endl<<endl;
 		outlog<<yyvsp[-2]->getname()<<yyvsp[-1]->getname()<<yyvsp[0]->getname()<<endl<<endl;	
 		yyval = new symbol_info(yyvsp[-2]->getname()+yyvsp[-1]->getname()+yyvsp[0]->getname(),"simple_expression");
 	}
-#line 1788 "y.tab.c"
+#line 1801 "y.tab.c"
     break;
 
-  case 45: /* term: unary_expression  */
-#line 259 "syntax_analyzer.y"
+  case 46: /* term: unary_expression  */
+#line 266 "syntax_analyzer.y"
                         {
 		outlog<<"At line no: "<<lines<<" term : unary_expression "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"term");
 	
     }
-#line 1799 "y.tab.c"
+#line 1812 "y.tab.c"
     break;
 
-  case 46: /* term: term MULOP unary_expression  */
-#line 264 "syntax_analyzer.y"
+  case 47: /* term: term MULOP unary_expression  */
+#line 271 "syntax_analyzer.y"
                                     {
 		outlog<<"At line no: "<<lines<<" term : term MULOP unary_expression "<<endl<<endl;
 		outlog<<yyvsp[-2]->getname()<<yyvsp[-1]->getname()<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[-2]->getname()+yyvsp[-1]->getname()+yyvsp[0]->getname(),"term");
 	}
-#line 1809 "y.tab.c"
+#line 1822 "y.tab.c"
     break;
 
-  case 47: /* unary_expression: ADDOP unary_expression  */
-#line 270 "syntax_analyzer.y"
+  case 48: /* unary_expression: ADDOP unary_expression  */
+#line 277 "syntax_analyzer.y"
                                           {
 		outlog<<"At line no: "<<lines<<" unary_expression : ADDOP unary_expression "<<endl<<endl;
 		outlog<<yyvsp[-1]->getname()<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[-1]->getname()+yyvsp[0]->getname(),"unary_expression");
 	
     }
-#line 1820 "y.tab.c"
+#line 1833 "y.tab.c"
     break;
 
-  case 48: /* unary_expression: NOT unary_expression  */
-#line 275 "syntax_analyzer.y"
+  case 49: /* unary_expression: NOT unary_expression  */
+#line 282 "syntax_analyzer.y"
                              {
 		outlog<<"At line no: "<<lines<<" unary_expression : NOT unary_expression "<<endl<<endl;
 		outlog<<"!"<<yyvsp[0]->getname()<<endl<<endl;	
 		yyval = new symbol_info("!"+yyvsp[0]->getname(),"unary_expression");
 	
     }
-#line 1831 "y.tab.c"
+#line 1844 "y.tab.c"
     break;
 
-  case 49: /* unary_expression: factor  */
-#line 280 "syntax_analyzer.y"
+  case 50: /* unary_expression: factor  */
+#line 287 "syntax_analyzer.y"
                {
 		outlog<<"At line no: "<<lines<<" unary_expression : factor "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"unary_expression");
 	}
-#line 1841 "y.tab.c"
+#line 1854 "y.tab.c"
     break;
 
-  case 50: /* factor: variable  */
-#line 286 "syntax_analyzer.y"
+  case 51: /* factor: variable  */
+#line 293 "syntax_analyzer.y"
                   {
 		outlog<<"At line no: "<<lines<<" factor : variable "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"factor");
 	
     }
-#line 1852 "y.tab.c"
+#line 1865 "y.tab.c"
     break;
 
-  case 51: /* factor: ID LPAREN argument_list RPAREN  */
-#line 291 "syntax_analyzer.y"
+  case 52: /* factor: ID LPAREN argument_list RPAREN  */
+#line 298 "syntax_analyzer.y"
                                        {
 		outlog<<"At line no: "<<lines<<" factor : ID LPAREN argument_list RPAREN "<<endl<<endl;
 		outlog<<yyvsp[-3]->getname()<<"("<<yyvsp[-1]->getname()<<")"<<endl<<endl;
 		yyval = new symbol_info(yyvsp[-3]->getname()+"("+yyvsp[-1]->getname()+")","factor");
 	
     }
-#line 1863 "y.tab.c"
+#line 1876 "y.tab.c"
     break;
 
-  case 52: /* factor: LPAREN expression RPAREN  */
-#line 296 "syntax_analyzer.y"
+  case 53: /* factor: LPAREN expression RPAREN  */
+#line 303 "syntax_analyzer.y"
                                  {
 		outlog<<"At line no: "<<lines<<" factor : LPAREN expression RPAREN "<<endl<<endl;
 		outlog<<"("<<yyvsp[-1]->getname()<<")"<<endl<<endl;
 		yyval = new symbol_info("("+yyvsp[-1]->getname()+")","factor");
 	
     }
-#line 1874 "y.tab.c"
+#line 1887 "y.tab.c"
     break;
 
-  case 53: /* factor: CONST_INT  */
-#line 301 "syntax_analyzer.y"
+  case 54: /* factor: CONST_INT  */
+#line 308 "syntax_analyzer.y"
                   {
 		outlog<<"At line no: "<<lines<<" factor : CONST_INT "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"factor");
 	
     }
-#line 1885 "y.tab.c"
+#line 1898 "y.tab.c"
     break;
 
-  case 54: /* factor: CONST_FLOAT  */
-#line 306 "syntax_analyzer.y"
+  case 55: /* factor: CONST_FLOAT  */
+#line 313 "syntax_analyzer.y"
                     {
 		outlog<<"At line no: "<<lines<<" factor : CONST_FLOAT "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"factor");
 	
     }
-#line 1896 "y.tab.c"
+#line 1909 "y.tab.c"
     break;
 
-  case 55: /* factor: variable INCOP  */
-#line 311 "syntax_analyzer.y"
+  case 56: /* factor: variable INCOP  */
+#line 318 "syntax_analyzer.y"
                        {
 		outlog<<"At line no: "<<lines<<" factor : variable INCOP "<<endl<<endl;
 		outlog<<yyvsp[-1]->getname()<<yyvsp[0]->getname()<<endl<<endl;	
 		yyval = new symbol_info(yyvsp[-1]->getname()+yyvsp[0]->getname(),"factor");
 	
     }
-#line 1907 "y.tab.c"
+#line 1920 "y.tab.c"
     break;
 
-  case 56: /* argument_list: arguments  */
-#line 319 "syntax_analyzer.y"
+  case 57: /* argument_list: arguments  */
+#line 326 "syntax_analyzer.y"
         {
 		outlog<<"At line no: "<<lines<<" argument_list : arguments "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		
 		yyval = new symbol_info(yyvsp[0]->getname(),"argument_list");
 	}
-#line 1918 "y.tab.c"
+#line 1931 "y.tab.c"
     break;
 
-  case 57: /* arguments: arguments COMMA logic_expression  */
-#line 327 "syntax_analyzer.y"
+  case 58: /* arguments: arguments COMMA logic_expression  */
+#line 334 "syntax_analyzer.y"
                                              {
 		outlog<<"At line no: "<<lines<<" arguments : arguments COMMA logic_expression "<<endl<<endl;
 		outlog<<yyvsp[-2]->getname()<<","<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[-2]->getname()+","+yyvsp[0]->getname(),"arguments");
 	
     }
-#line 1929 "y.tab.c"
+#line 1942 "y.tab.c"
     break;
 
-  case 58: /* arguments: logic_expression  */
-#line 332 "syntax_analyzer.y"
+  case 59: /* arguments: logic_expression  */
+#line 339 "syntax_analyzer.y"
                          {
 		outlog<<"At line no: "<<lines<<" arguments : logic_expression "<<endl<<endl;
 		outlog<<yyvsp[0]->getname()<<endl<<endl;
 		yyval = new symbol_info(yyvsp[0]->getname(),"arguments");
 	}
-#line 1939 "y.tab.c"
+#line 1952 "y.tab.c"
     break;
 
 
-#line 1943 "y.tab.c"
+#line 1956 "y.tab.c"
 
       default: break;
     }
@@ -2132,7 +2145,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 338 "syntax_analyzer.y"
+#line 345 "syntax_analyzer.y"
 
 
 int main(int argc, char *argv[])

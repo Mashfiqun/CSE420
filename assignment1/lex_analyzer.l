@@ -34,7 +34,7 @@ digit	 [0-9]
 /* write regular expressions for id, float and integers */
 id		 {letter_}({letter_}|{digit})*
 float     [0-9]*\.[0-9]+([eE][+-]?[0-9]+)?
-integer    [+-]?[0-9]+
+integer    [0-9]+
 
 
 %%

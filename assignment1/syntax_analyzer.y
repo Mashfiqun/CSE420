@@ -24,6 +24,13 @@ int lines = 1;
 
 %%
 
+start: program {
+	outlog<<"At line no: "<<lines<<" start : program"<<endl<<endl;
+	outlog<<$1->getname()<<endl<<endl;
+		
+	$$ = new symbol_info($1->getname(), "start");
+}
+
 program : program unit{
 		outlog<<"At line no: "<<lines<<" program : program unit "<<endl<<endl;
 		outlog<<$1->getname()+"\n"+$2->getname()<<endl<<endl;
@@ -88,13 +95,13 @@ compound_statement : LCURL statements RCURL {
 		$$ = new symbol_info("{\n}","compound_statement");
 	};
 
-var_declaration : type_specifier declaration_list SEMICOLON{
+var_declaration : type_specifier declaration_list SEMICOLON {
 		outlog<<"At line no: "<<lines<<" var_declaration : type_specifier declaration_list SEMICOLON "<<endl<<endl;
 		outlog<<$1->getname()<<" "<<$2->getname()<<";"<<endl<<endl;
 		$$ = new symbol_info($1->getname()+" "+$2->getname()+";","var_declaration");
 	};
 
-type_specifier : INT{
+type_specifier : INT {
 		outlog<<"At line no: "<<lines<<" type_specifier : INT "<<endl<<endl;
 		outlog<<"int"<<endl<<endl;
 		$$ = new symbol_info("int","type_specifier");
@@ -164,7 +171,7 @@ statement : var_declaration {
 		outlog<<"for("<<$3->getname()<<$4->getname()<<$5->getname()<<")\n"<<$7->getname()<<endl<<endl;
 		$$ = new symbol_info("for("+$3->getname()+$4->getname()+$5->getname()+")\n"+$7->getname(),"statement");
 	
-    } | IF LPAREN expression RPAREN statement            %prec IF {
+    } | IF LPAREN expression RPAREN statement         %prec IF    {
 		outlog<<"At line no: "<<lines<<" statement : IF LPAREN expression RPAREN statement "<<endl<<endl;
 		outlog<<"if("<<$3->getname()<<")\n"<<$5->getname()<<endl<<endl;	
 		$$ = new symbol_info("if("+$3->getname()+")\n"+$5->getname(),"statement");
@@ -199,7 +206,7 @@ expression_statement : SEMICOLON {
 		outlog<<"At line no: "<<lines<<" expression_statement : expression SEMICOLON "<<endl<<endl;
 		outlog<<$1->getname()<<";"<<endl<<endl;	
 		$$ = new symbol_info($1->getname()+";","expression_statement");
-	}; /// will re-check this///
+	};
 
 variable : ID {
 		outlog<<"At line no: "<<lines<<" variable : ID "<<endl<<endl;

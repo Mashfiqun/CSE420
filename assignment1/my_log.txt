@@ -284,7 +284,7 @@ y
 
 Line no 9: Token <ID> Lexeme x found
 
-Line no 9: Token <CONST_INT> Lexeme -5 found
+Line no 9: Token <ADDOP> Lexeme - found
 
 At line no: 9 variable : ID 
 
@@ -306,15 +306,1040 @@ At line no: 9 simple_expression : term
 
 x
 
+Line no 9: Token <CONST_INT> Lexeme 5 found
+
+At line no: 9 factor : CONST_INT 
+
+-
+
+At line no: 9 unary_expression : factor 
+
+-
+
+At line no: 9 term : unary_expression 
+
+-
+
+Line no 9: Token <SEMICOLON> Lexeme ; found
+
+At line no: 9 simple_expression : simple_expression ADDOP term 
+
+x--
+
 At line no: 9 rel_expression : simple_expression 
 
-x
+x--
 
 At line no: 9 logic_expression : rel_expression 
 
-x
+x--
 
 At line no: 9 expression : variable ASSIGNOP logic_expression 
 
-y=x
+y=x--
+
+At line no: 9 expression_statement : expression SEMICOLON 
+
+y=x--;
+
+At line no: 9 statement : expression_statement 
+
+y=x--;
+
+At line no: 9 statements : statements statement 
+
+x=x;
+y=x--;
+
+Line no 10: Token <RCURL> Lexeme } found
+
+At line no: 10 compound_statement : LCURL statements RCURL 
+
+{
+x=x;
+y=x--;
+}
+
+At line no: 10 func_definition : type_specifier ID LPAREN RPAREN compound_statement 
+
+void foo()
+{
+x=x;
+y=x--;
+}
+
+At line no: 10 unit : func_definition 
+
+void foo()
+{
+x=x;
+y=x--;
+}
+
+At line no: 10 program : program unit 
+
+int x,y,z;
+float a;
+int var(int a,int b)
+{
+return a+b;
+}
+void foo()
+{
+x=x;
+y=x--;
+}
+
+Line no 12: Token <INT> Lexeme int found
+
+At line no: 12 type_specifier : INT 
+
+int
+
+Line no 12: Token <ID> Lexeme main found
+
+Line no 12: Token <LPAREN> Lexeme ( found
+
+Line no 12: Token <RPAREN> Lexeme ) found
+
+Line no 12: Token <LCURL> Lexeme { found
+
+Line no 13: Token <INT> Lexeme int found
+
+At line no: 13 type_specifier : INT 
+
+int
+
+Line no 13: Token <ID> Lexeme a found
+
+Line no 13: Token <LTHIRD> Lexeme [ found
+
+Line no 13: Token <CONST_INT> Lexeme 2 found
+
+Line no 13: Token <RTHIRD> Lexeme ] found
+
+At line no: 13 declaration_list : ID LTHIRD CONST_INT RTHIRD 
+
+a[a]
+
+Line no 13: Token <COMMA> Lexeme , found
+
+Line no 13: Token <ID> Lexeme c found
+
+Line no 13: Token <COMMA> Lexeme , found
+
+At line no: 13 declaration_list : declaration_list COMMA ID 
+
+a[a],c
+
+Line no 13: Token <ID> Lexeme i found
+
+Line no 13: Token <COMMA> Lexeme , found
+
+At line no: 13 declaration_list : declaration_list COMMA ID 
+
+a[a],c,i
+
+Line no 13: Token <ID> Lexeme j found
+
+Line no 13: Token <SEMICOLON> Lexeme ; found
+
+At line no: 13 declaration_list : declaration_list COMMA ID 
+
+a[a],c,i,j
+
+At line no: 13 var_declaration : type_specifier declaration_list SEMICOLON 
+
+int a[a],c,i,j;
+
+At line no: 13 statement : var_declaration 
+
+int a[a],c,i,j;
+
+At line no: 13 statements : statement 
+
+int a[a],c,i,j;
+
+Line no 13: Token <FLOAT> Lexeme float found
+
+At line no: 13 type_specifier : FLOAT 
+
+float
+
+Line no 13: Token <ID> Lexeme d found
+
+Line no 13: Token <SEMICOLON> Lexeme ; found
+
+At line no: 13 declaration_list : ID 
+
+d
+
+At line no: 13 var_declaration : type_specifier declaration_list SEMICOLON 
+
+float d;
+
+At line no: 13 statement : var_declaration 
+
+float d;
+
+At line no: 13 statements : statements statement 
+
+int a[a],c,i,j;
+float d;
+
+Line no 14: Token <ID> Lexeme a found
+
+Line no 14: Token <LTHIRD> Lexeme [ found
+
+Line no 14: Token <CONST_INT> Lexeme 0 found
+
+At line no: 14 factor : CONST_INT 
+
+a
+
+At line no: 14 unary_expression : factor 
+
+a
+
+At line no: 14 term : unary_expression 
+
+a
+
+Line no 14: Token <RTHIRD> Lexeme ] found
+
+At line no: 14 simple_expression : term 
+
+a
+
+At line no: 14 rel_expression : simple_expression 
+
+a
+
+At line no: 14 logic_expression : rel_expression 
+
+a
+
+At line no: 14 expression : logic_expression 
+
+a
+
+At line no: 14 variable : ID LTHIRD expression RTHIRD 
+
+a[a]
+
+Line no 14: Token <SEMICOLON> Lexeme ; found
+
+At line no: 14 factor : variable 
+
+a[a]
+
+At line no: 14 unary_expression : factor 
+
+a[a]
+
+At line no: 14 term : unary_expression 
+
+a[a]
+
+At line no: 14 simple_expression : term 
+
+a[a]
+
+At line no: 14 rel_expression : simple_expression 
+
+a[a]
+
+At line no: 14 logic_expression : rel_expression 
+
+a[a]
+
+At line no: 14 expression : logic_expression 
+
+a[a]
+
+At line no: 14 expression_statement : expression SEMICOLON 
+
+a[a];
+
+At line no: 14 statement : expression_statement 
+
+a[a];
+
+At line no: 14 statements : statements statement 
+
+int a[a],c,i,j;
+float d;
+a[a];
+
+Line no 15: Token <ID> Lexeme a found
+
+Line no 15: Token <LTHIRD> Lexeme [ found
+
+Line no 15: Token <CONST_INT> Lexeme 1 found
+
+At line no: 15 factor : CONST_INT 
+
+a
+
+At line no: 15 unary_expression : factor 
+
+a
+
+At line no: 15 term : unary_expression 
+
+a
+
+Line no 15: Token <RTHIRD> Lexeme ] found
+
+At line no: 15 simple_expression : term 
+
+a
+
+At line no: 15 rel_expression : simple_expression 
+
+a
+
+At line no: 15 logic_expression : rel_expression 
+
+a
+
+At line no: 15 expression : logic_expression 
+
+a
+
+At line no: 15 variable : ID LTHIRD expression RTHIRD 
+
+a[a]
+
+Line no 15: Token <ASSIGNOP> Lexeme = found
+
+Line no 15: Token <CONST_INT> Lexeme 5 found
+
+At line no: 15 factor : CONST_INT 
+
+a
+
+At line no: 15 unary_expression : factor 
+
+a
+
+At line no: 15 term : unary_expression 
+
+a
+
+Line no 15: Token <SEMICOLON> Lexeme ; found
+
+At line no: 15 simple_expression : term 
+
+a
+
+At line no: 15 rel_expression : simple_expression 
+
+a
+
+At line no: 15 logic_expression : rel_expression 
+
+a
+
+At line no: 15 expression : variable ASSIGNOP logic_expression 
+
+a[a]=a
+
+At line no: 15 expression_statement : expression SEMICOLON 
+
+a[a]=a;
+
+At line no: 15 statement : expression_statement 
+
+a[a]=a;
+
+At line no: 15 statements : statements statement 
+
+int a[a],c,i,j;
+float d;
+a[a];
+a[a]=a;
+
+Line no 16: Token <ID> Lexeme i found
+
+Line no 16: Token <ASSIGNOP> Lexeme = found
+
+At line no: 16 variable : ID 
+
+i
+
+Line no 16: Token <ID> Lexeme a found
+
+Line no 16: Token <LTHIRD> Lexeme [ found
+
+Line no 16: Token <CONST_INT> Lexeme 0 found
+
+At line no: 16 factor : CONST_INT 
+
+a
+
+At line no: 16 unary_expression : factor 
+
+a
+
+At line no: 16 term : unary_expression 
+
+a
+
+Line no 16: Token <RTHIRD> Lexeme ] found
+
+At line no: 16 simple_expression : term 
+
+a
+
+At line no: 16 rel_expression : simple_expression 
+
+a
+
+At line no: 16 logic_expression : rel_expression 
+
+a
+
+At line no: 16 expression : logic_expression 
+
+a
+
+At line no: 16 variable : ID LTHIRD expression RTHIRD 
+
+a[a]
+
+Line no 16: Token <ADDOP> Lexeme + found
+
+At line no: 16 factor : variable 
+
+a[a]
+
+At line no: 16 unary_expression : factor 
+
+a[a]
+
+At line no: 16 term : unary_expression 
+
+a[a]
+
+At line no: 16 simple_expression : term 
+
+a[a]
+
+Line no 16: Token <ID> Lexeme a found
+
+Line no 16: Token <LTHIRD> Lexeme [ found
+
+Line no 16: Token <CONST_INT> Lexeme 1 found
+
+At line no: 16 factor : CONST_INT 
+
+a
+
+At line no: 16 unary_expression : factor 
+
+a
+
+At line no: 16 term : unary_expression 
+
+a
+
+Line no 16: Token <RTHIRD> Lexeme ] found
+
+At line no: 16 simple_expression : term 
+
+a
+
+At line no: 16 rel_expression : simple_expression 
+
+a
+
+At line no: 16 logic_expression : rel_expression 
+
+a
+
+At line no: 16 expression : logic_expression 
+
+a
+
+At line no: 16 variable : ID LTHIRD expression RTHIRD 
+
+a[a]
+
+Line no 16: Token <SEMICOLON> Lexeme ; found
+
+At line no: 16 factor : variable 
+
+a[a]
+
+At line no: 16 unary_expression : factor 
+
+a[a]
+
+At line no: 16 term : unary_expression 
+
+a[a]
+
+At line no: 16 simple_expression : simple_expression ADDOP term 
+
+a[a]+a[a]
+
+At line no: 16 rel_expression : simple_expression 
+
+a[a]+a[a]
+
+At line no: 16 logic_expression : rel_expression 
+
+a[a]+a[a]
+
+At line no: 16 expression : variable ASSIGNOP logic_expression 
+
+i=a[a]+a[a]
+
+At line no: 16 expression_statement : expression SEMICOLON 
+
+i=a[a]+a[a];
+
+At line no: 16 statement : expression_statement 
+
+i=a[a]+a[a];
+
+At line no: 16 statements : statements statement 
+
+int a[a],c,i,j;
+float d;
+a[a];
+a[a]=a;
+i=a[a]+a[a];
+
+Line no 17: Token <ID> Lexeme j found
+
+Line no 17: Token <ASSIGNOP> Lexeme = found
+
+At line no: 17 variable : ID 
+
+j
+
+Line no 17: Token <CONST_INT> Lexeme 2 found
+
+At line no: 17 factor : CONST_INT 
+
+j
+
+At line no: 17 unary_expression : factor 
+
+j
+
+At line no: 17 term : unary_expression 
+
+j
+
+Line no 17: Token <MULOP> Lexeme * found
+
+Line no 17: Token <CONST_INT> Lexeme 3 found
+
+At line no: 17 factor : CONST_INT 
+
+*
+
+At line no: 17 unary_expression : factor 
+
+*
+
+At line no: 17 term : term MULOP unary_expression 
+
+j**
+
+Line no 17: Token <ADDOP> Lexeme + found
+
+At line no: 17 simple_expression : term 
+
+j**
+
+Line no 17: Token <LPAREN> Lexeme ( found
+
+Line no 17: Token <CONST_INT> Lexeme 5 found
+
+At line no: 17 factor : CONST_INT 
+
++
+
+At line no: 17 unary_expression : factor 
+
++
+
+At line no: 17 term : unary_expression 
+
++
+
+Line no 17: Token <MULOP> Lexeme % found
+
+Line no 17: Token <CONST_INT> Lexeme 3 found
+
+At line no: 17 factor : CONST_INT 
+
+%
+
+At line no: 17 unary_expression : factor 
+
+%
+
+At line no: 17 term : term MULOP unary_expression 
+
++%%
+
+Line no 17: Token <RELOP> Lexeme < found
+
+At line no: 17 simple_expression : term 
+
++%%
+
+Line no 17: Token <CONST_INT> Lexeme 4 found
+
+At line no: 17 factor : CONST_INT 
+
+<
+
+At line no: 17 unary_expression : factor 
+
+<
+
+At line no: 17 term : unary_expression 
+
+<
+
+Line no 17: Token <LOGICOP> Lexeme && found
+
+At line no: 17 simple_expression : term 
+
+<
+
+At line no: 17 rel_expression : simple_expression RELOP simple_expression 
+
++%%<<
+
+Line no 17: Token <CONST_INT> Lexeme 8 found
+
+At line no: 17 factor : CONST_INT 
+
+&&
+
+At line no: 17 unary_expression : factor 
+
+&&
+
+At line no: 17 term : unary_expression 
+
+&&
+
+Line no 17: Token <RPAREN> Lexeme ) found
+
+At line no: 17 simple_expression : term 
+
+&&
+
+At line no: 17 rel_expression : simple_expression 
+
+&&
+
+At line no: 17 logic_expression : rel_expression LOGICOP rel_expression 
+
++%%<<&&&&
+
+At line no: 17 expression : logic_expression 
+
++%%<<&&&&
+
+At line no: 17 factor : LPAREN expression RPAREN 
+
+(+%%<<&&&&)
+
+At line no: 17 unary_expression : factor 
+
+(+%%<<&&&&)
+
+At line no: 17 term : unary_expression 
+
+(+%%<<&&&&)
+
+Line no 17: Token <LOGICOP> Lexeme || found
+
+At line no: 17 simple_expression : simple_expression ADDOP term 
+
+j**+(+%%<<&&&&)
+
+At line no: 17 rel_expression : simple_expression 
+
+j**+(+%%<<&&&&)
+
+Line no 17: Token <CONST_INT> Lexeme 2 found
+
+At line no: 17 factor : CONST_INT 
+
+||
+
+At line no: 17 unary_expression : factor 
+
+||
+
+At line no: 17 term : unary_expression 
+
+||
+
+Line no 17: Token <SEMICOLON> Lexeme ; found
+
+At line no: 17 simple_expression : term 
+
+||
+
+At line no: 17 rel_expression : simple_expression 
+
+||
+
+At line no: 17 logic_expression : rel_expression LOGICOP rel_expression 
+
+j**+(+%%<<&&&&)||||
+
+At line no: 17 expression : variable ASSIGNOP logic_expression 
+
+j=j**+(+%%<<&&&&)||||
+
+At line no: 17 expression_statement : expression SEMICOLON 
+
+j=j**+(+%%<<&&&&)||||;
+
+At line no: 17 statement : expression_statement 
+
+j=j**+(+%%<<&&&&)||||;
+
+At line no: 17 statements : statements statement 
+
+int a[a],c,i,j;
+float d;
+a[a];
+a[a]=a;
+i=a[a]+a[a];
+j=j**+(+%%<<&&&&)||||;
+
+Line no 18: Token <ID> Lexeme d found
+
+Line no 18: Token <ASSIGNOP> Lexeme = found
+
+At line no: 18 variable : ID 
+
+d
+
+Line no 18: Token <ID> Lexeme var found
+
+Line no 18: Token <LPAREN> Lexeme ( found
+
+Line no 18: Token <CONST_INT> Lexeme 1 found
+
+At line no: 18 factor : CONST_INT 
+
+var
+
+At line no: 18 unary_expression : factor 
+
+var
+
+At line no: 18 term : unary_expression 
+
+var
+
+Line no 18: Token <COMMA> Lexeme , found
+
+At line no: 18 simple_expression : term 
+
+var
+
+At line no: 18 rel_expression : simple_expression 
+
+var
+
+At line no: 18 logic_expression : rel_expression 
+
+var
+
+At line no: 18 arguments : logic_expression 
+
+var
+
+Line no 18: Token <CONST_INT> Lexeme 2 found
+
+At line no: 18 factor : CONST_INT 
+
+var
+
+At line no: 18 unary_expression : factor 
+
+var
+
+At line no: 18 term : unary_expression 
+
+var
+
+Line no 18: Token <MULOP> Lexeme * found
+
+Line no 18: Token <CONST_INT> Lexeme 3 found
+
+At line no: 18 factor : CONST_INT 
+
+*
+
+At line no: 18 unary_expression : factor 
+
+*
+
+At line no: 18 term : term MULOP unary_expression 
+
+var**
+
+Line no 18: Token <RPAREN> Lexeme ) found
+
+At line no: 18 simple_expression : term 
+
+var**
+
+At line no: 18 rel_expression : simple_expression 
+
+var**
+
+At line no: 18 logic_expression : rel_expression 
+
+var**
+
+At line no: 18 arguments : arguments COMMA logic_expression 
+
+var,var**
+
+At line no: 18 argument_list : arguments 
+
+var,var**
+
+At line no: 18 factor : ID LPAREN argument_list RPAREN 
+
+var(var,var**)
+
+At line no: 18 unary_expression : factor 
+
+var(var,var**)
+
+At line no: 18 term : unary_expression 
+
+var(var,var**)
+
+Line no 18: Token <ADDOP> Lexeme + found
+
+At line no: 18 simple_expression : term 
+
+var(var,var**)
+
+Line no 18: Token <CONST_FLOAT> Lexeme 3.5 found
+
+At line no: 18 factor : CONST_FLOAT 
+
++
+
+At line no: 18 unary_expression : factor 
+
++
+
+At line no: 18 term : unary_expression 
+
++
+
+Line no 18: Token <MULOP> Lexeme * found
+
+Line no 18: Token <CONST_INT> Lexeme 2 found
+
+At line no: 18 factor : CONST_INT 
+
+*
+
+At line no: 18 unary_expression : factor 
+
+*
+
+At line no: 18 term : term MULOP unary_expression 
+
++**
+
+Line no 18: Token <SEMICOLON> Lexeme ; found
+
+At line no: 18 simple_expression : simple_expression ADDOP term 
+
+var(var,var**)++**
+
+At line no: 18 rel_expression : simple_expression 
+
+var(var,var**)++**
+
+At line no: 18 logic_expression : rel_expression 
+
+var(var,var**)++**
+
+At line no: 18 expression : variable ASSIGNOP logic_expression 
+
+d=var(var,var**)++**
+
+At line no: 18 expression_statement : expression SEMICOLON 
+
+d=var(var,var**)++**;
+
+At line no: 18 statement : expression_statement 
+
+d=var(var,var**)++**;
+
+At line no: 18 statements : statements statement 
+
+int a[a],c,i,j;
+float d;
+a[a];
+a[a]=a;
+i=a[a]+a[a];
+j=j**+(+%%<<&&&&)||||;
+d=var(var,var**)++**;
+
+Line no 19: Token <RETURN> Lexeme return found
+
+Line no 19: Token <CONST_INT> Lexeme 0 found
+
+At line no: 19 factor : CONST_INT 
+
+*
+
+At line no: 19 unary_expression : factor 
+
+*
+
+At line no: 19 term : unary_expression 
+
+*
+
+Line no 19: Token <SEMICOLON> Lexeme ; found
+
+At line no: 19 simple_expression : term 
+
+*
+
+At line no: 19 rel_expression : simple_expression 
+
+*
+
+At line no: 19 logic_expression : rel_expression 
+
+*
+
+At line no: 19 expression : logic_expression 
+
+*
+
+At line no: 19 statement : RETURN expression SEMICOLON 
+
+return *;
+
+At line no: 19 statements : statements statement 
+
+int a[a],c,i,j;
+float d;
+a[a];
+a[a]=a;
+i=a[a]+a[a];
+j=j**+(+%%<<&&&&)||||;
+d=var(var,var**)++**;
+return *;
+
+Line no 20: Token <RCURL> Lexeme } found
+
+At line no: 20 compound_statement : LCURL statements RCURL 
+
+{
+int a[a],c,i,j;
+float d;
+a[a];
+a[a]=a;
+i=a[a]+a[a];
+j=j**+(+%%<<&&&&)||||;
+d=var(var,var**)++**;
+return *;
+}
+
+At line no: 20 func_definition : type_specifier ID LPAREN RPAREN compound_statement 
+
+int main()
+{
+int a[a],c,i,j;
+float d;
+a[a];
+a[a]=a;
+i=a[a]+a[a];
+j=j**+(+%%<<&&&&)||||;
+d=var(var,var**)++**;
+return *;
+}
+
+At line no: 20 unit : func_definition 
+
+int main()
+{
+int a[a],c,i,j;
+float d;
+a[a];
+a[a]=a;
+i=a[a]+a[a];
+j=j**+(+%%<<&&&&)||||;
+d=var(var,var**)++**;
+return *;
+}
+
+At line no: 20 program : program unit 
+
+int x,y,z;
+float a;
+int var(int a,int b)
+{
+return a+b;
+}
+void foo()
+{
+x=x;
+y=x--;
+}
+int main()
+{
+int a[a],c,i,j;
+float d;
+a[a];
+a[a]=a;
+i=a[a]+a[a];
+j=j**+(+%%<<&&&&)||||;
+d=var(var,var**)++**;
+return *;
+}
+
+At line no: 21 start : program
+
+int x,y,z;
+float a;
+int var(int a,int b)
+{
+return a+b;
+}
+void foo()
+{
+x=x;
+y=x--;
+}
+int main()
+{
+int a[a],c,i,j;
+float d;
+a[a];
+a[a]=a;
+i=a[a]+a[a];
+j=j**+(+%%<<&&&&)||||;
+d=var(var,var**)++**;
+return *;
+}
 
