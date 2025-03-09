@@ -979,7 +979,7 @@ case 21:
 YY_RULE_SETUP
 #line 140 "22141027.l"
 { 
-                symbol_info *s = new symbol_info((string)yytext,"ID");
+                symbol_info *s = new symbol_info((string)yytext,"CONST_INT");
                 yylval = (YYSTYPE)s;
                 loglist="Line no "+to_string(lines)+": Token <CONST_INT> Lexeme "+yytext+" found"+"\n"+"\n";
 			    outlog<<loglist; 
@@ -989,7 +989,7 @@ case 22:
 YY_RULE_SETUP
 #line 147 "22141027.l"
 { 
-                symbol_info *s = new symbol_info((string)yytext,"ID");
+                symbol_info *s = new symbol_info((string)yytext,"CONST_FLOAT");
                 yylval = (YYSTYPE)s;
                 loglist="Line no "+to_string(lines)+": Token <CONST_FLOAT> Lexeme "+yytext+" found"+"\n"+"\n";
 			    outlog<<loglist; 

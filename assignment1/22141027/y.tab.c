@@ -1336,8 +1336,8 @@ yyreduce:
   case 2: /* start: program  */
 #line 27 "22141027.y"
                {
-	outlog<<"At line no: "<<lines<<" start : program"<<endl<<endl;
-	yyval = new symbol_info(yyvsp[0]->getname(), "start");
+		outlog<<"At line no: "<<lines<<" start : program"<<endl<<endl;
+		yyval = new symbol_info(yyvsp[0]->getname(), "start");
 	}
 #line 1343 "y.tab.c"
     break;
