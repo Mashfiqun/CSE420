@@ -144,7 +144,7 @@ parameter_list : parameter_list COMMA type_specifier ID
 			
 			symbol_info* parameter = new symbol_info($4->get_name(), "parameter");
 			parameter->set_symbol_type("Variable");
-			parameter->set_return_type($3->get_name());
+			parameter->set_data_type($3->get_name());
 			parameters.push_back(parameter);
 			param_count++;
 
@@ -174,7 +174,7 @@ parameter_list : parameter_list COMMA type_specifier ID
 
 			symbol_info* parameter = new symbol_info($2->get_name(), "parameter");
 			parameter->set_symbol_type("Variable");
-			parameter->set_return_type($1->get_name());
+			parameter->set_data_type($1->get_name());
 			parameters.push_back(parameter);
 			param_count++;
 			
@@ -240,7 +240,7 @@ var_declaration : type_specifier declaration_list SEMICOLON
 			for (const std::string& token: tokens) {
 				symbol_info* info = new symbol_info(token, $1->get_name());
 				info->set_symbol_type("Variable");
-				info->set_return_type($1->get_type());
+				info->set_data_type($1->get_type());
 				sym_tbl->insert(info);
 			}
 			
@@ -281,7 +281,7 @@ declaration_list : declaration_list COMMA ID
             // you may need to store the variable names to insert them in symbol table here or later
 			symbol_info* new_symbol = new symbol_info($3->get_name(), current_type);
 			new_symbol->set_symbol_type("Variable");
-			new_symbol->set_return_type(current_type);
+			new_symbol->set_data_type(current_type);
 			sym_tbl->insert(new_symbol);
 			$$ = new symbol_info($1->get_name() + "," + $3->get_name(), "declaration_list");
 			
@@ -306,7 +306,7 @@ declaration_list : declaration_list COMMA ID
             // you may need to store the variable names to insert them in symbol table here or later
 			symbol_info* new_symbol = new symbol_info($1->get_name(), current_type);
 			new_symbol->set_symbol_type("Variable");
-			new_symbol->set_return_type(current_type);
+			new_symbol->set_data_type(current_type);
 			sym_tbl->insert(new_symbol);
 			$$ = new symbol_info($1->get_name(), "declaration_list");
 			
@@ -648,7 +648,7 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 	yyin = fopen(argv[1], "r");
-	outlog.open("my_log.txt", ios::trunc);
+	outlog.open("22101861_log.txt", ios::trunc);
 	
 	if(yyin == NULL)
 	{

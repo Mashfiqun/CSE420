@@ -68,6 +68,14 @@ public:
     {
         this->return_type = return_type;
     }
+    void set_data_type(string data_type)
+    {
+        this->return_type = data_type;
+    }
+    string get_data_type()
+    {
+        return return_type;
+    }
     void add_parameter(string parameter_name, string parameter_type)
     {
         parameter_names.push_back(parameter_name);

@@ -520,8 +520,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "lex_analyzer.l"
-#line 4 "lex_analyzer.l"
+#line 1 "22101861.l"
+#line 4 "22101861.l"
 
 #include"symbol_info.h"
 
@@ -753,7 +753,7 @@ YY_DECL
 		}
 
 	{
-#line 28 "lex_analyzer.l"
+#line 28 "22101861.l"
 
 
 #line 759 "lex.yy.c"
@@ -815,103 +815,103 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 30 "lex_analyzer.l"
+#line 30 "22101861.l"
 { /* ignore whitespace */ }
 	YY_BREAK
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 31 "lex_analyzer.l"
+#line 31 "22101861.l"
 { lines++; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 33 "lex_analyzer.l"
+#line 33 "22101861.l"
 { return IF; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 34 "lex_analyzer.l"
+#line 34 "22101861.l"
 { return ELSE; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 35 "lex_analyzer.l"
+#line 35 "22101861.l"
 { return FOR; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 36 "lex_analyzer.l"
+#line 36 "22101861.l"
 { return WHILE; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 37 "lex_analyzer.l"
+#line 37 "22101861.l"
 { return DO; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 38 "lex_analyzer.l"
+#line 38 "22101861.l"
 { return BREAK; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 39 "lex_analyzer.l"
+#line 39 "22101861.l"
 { return CONTINUE; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 40 "lex_analyzer.l"
+#line 40 "22101861.l"
 { return RETURN; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 41 "lex_analyzer.l"
+#line 41 "22101861.l"
 { return INT; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 42 "lex_analyzer.l"
+#line 42 "22101861.l"
 { return FLOAT; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 43 "lex_analyzer.l"
+#line 43 "22101861.l"
 { return CHAR; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 44 "lex_analyzer.l"
+#line 44 "22101861.l"
 { return VOID; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 45 "lex_analyzer.l"
+#line 45 "22101861.l"
 { return DOUBLE; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 46 "lex_analyzer.l"
+#line 46 "22101861.l"
 { return SWITCH; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 47 "lex_analyzer.l"
+#line 47 "22101861.l"
 { return CASE; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 48 "lex_analyzer.l"
+#line 48 "22101861.l"
 { return DEFAULT; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 49 "lex_analyzer.l"
+#line 49 "22101861.l"
 { return PRINTLN; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 51 "lex_analyzer.l"
+#line 51 "22101861.l"
 {
                 symbol_info *s = new symbol_info((string)yytext,"ADDOP");
                 yylval = (YYSTYPE)s;
@@ -920,7 +920,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 56 "lex_analyzer.l"
+#line 56 "22101861.l"
 {
                 symbol_info *s = new symbol_info((string)yytext,"MULOP");
                 yylval = (YYSTYPE)s;
@@ -929,17 +929,17 @@ YY_RULE_SETUP
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 61 "lex_analyzer.l"
+#line 61 "22101861.l"
 { return INCOP; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 62 "lex_analyzer.l"
+#line 62 "22101861.l"
 { return DECOP; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 63 "lex_analyzer.l"
+#line 63 "22101861.l"
 {
                 symbol_info *s = new symbol_info((string)yytext,"RELOP");
                 yylval = (YYSTYPE)s;
@@ -948,12 +948,12 @@ YY_RULE_SETUP
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 69 "lex_analyzer.l"
+#line 69 "22101861.l"
 { return ASSIGNOP; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 70 "lex_analyzer.l"
+#line 70 "22101861.l"
 {
 		   	symbol_info *s = new symbol_info((string)yytext,"LOGICOP");
 			yylval = (YYSTYPE)s;
@@ -962,52 +962,52 @@ YY_RULE_SETUP
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 76 "lex_analyzer.l"
+#line 76 "22101861.l"
 { return NOT; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 77 "lex_analyzer.l"
+#line 77 "22101861.l"
 { return LPAREN; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 78 "lex_analyzer.l"
+#line 78 "22101861.l"
 { return RPAREN; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 79 "lex_analyzer.l"
+#line 79 "22101861.l"
 { return LCURL; }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 80 "lex_analyzer.l"
+#line 80 "22101861.l"
 { return RCURL; }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 81 "lex_analyzer.l"
+#line 81 "22101861.l"
 { return LTHIRD; }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 82 "lex_analyzer.l"
+#line 82 "22101861.l"
 { return RTHIRD; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 83 "lex_analyzer.l"
+#line 83 "22101861.l"
 { return SEMICOLON; }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 84 "lex_analyzer.l"
+#line 84 "22101861.l"
 { return COMMA; }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 86 "lex_analyzer.l"
+#line 86 "22101861.l"
 {
                 symbol_info *s = new symbol_info((string)yytext,"ID");
                 yylval = (YYSTYPE)s;
@@ -1016,7 +1016,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 91 "lex_analyzer.l"
+#line 91 "22101861.l"
 {
                 symbol_info *s = new symbol_info((string)yytext,"INT");
                 yylval = (YYSTYPE)s;
@@ -1025,7 +1025,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 96 "lex_analyzer.l"
+#line 96 "22101861.l"
 {
                 symbol_info *s = new symbol_info((string)yytext,"FLOAT");
                 yylval = (YYSTYPE)s;
@@ -1034,7 +1034,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 101 "lex_analyzer.l"
+#line 101 "22101861.l"
 ECHO;
 	YY_BREAK
 #line 1040 "lex.yy.c"
@@ -2042,4 +2042,4 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 101 "lex_analyzer.l"
+#line 101 "22101861.l"
