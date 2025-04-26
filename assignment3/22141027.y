@@ -508,8 +508,8 @@ variable : ID
 			errlog << "At line no: " << lines << " Undeclared variable " << $1->get_name() << endl << endl;
 			errors++;
 		}
-		else if (result->get_symbol_type() == "Array") {
-			errlog << "At line no: " << lines << " variable is of array type: " << $1->get_name() << endl << endl;
+		else if (result->get_symbol_type() != "Variable") {
+			errlog << "At line no: " << lines << " variable is of " << result->get_symbol_type() << " type: " << $1->get_name() << endl << endl;
 			errors++;
 			$$ = new symbol_info($1->get_name(),"varbl");
 			$$->set_data_type(result->get_data_type());
@@ -597,6 +597,7 @@ logic_expression : rel_expression
 			outlog<<$1->get_name()<<$2->get_name()<<$3->get_name()<<endl<<endl;
 			
 			$$ = new symbol_info($1->get_name()+$2->get_name()+$3->get_name(),"lgc_expr");
+			$$->set_data_type("int");
 	     }	
 		 ;
 			
@@ -614,6 +615,7 @@ rel_expression	: simple_expression
 			outlog<<$1->get_name()<<$2->get_name()<<$3->get_name()<<endl<<endl;
 			
 			$$ = new symbol_info($1->get_name()+$2->get_name()+$3->get_name(),"rel_expr");
+			$$->set_data_type("int");
 	    }
 		;
 				
@@ -661,6 +663,12 @@ term :	unary_expression //term can be void because of un_expr->factor
 			}
 			else if (stoi($3->get_name()) == 0) {
 				errlog << "At line no: " << lines << " Modulus by 0" << endl << endl;
+				errors++;
+			}
+		}
+		else if ($2->get_name() == "/") {
+			if (stoi($3->get_name()) == 0) {
+				errlog << "At line no: " << lines << " Division by 0" << endl << endl;
 				errors++;
 			}
 		}

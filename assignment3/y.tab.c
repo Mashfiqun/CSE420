@@ -728,9 +728,9 @@ static const yytype_int16 yyrline[] =
      131,   131,   150,   187,   197,   228,   240,   240,   262,   274,
      298,   306,   314,   324,   341,   358,   374,   392,   399,   408,
      415,   423,   430,   437,   444,   451,   458,   465,   478,   487,
-     494,   503,   528,   560,   568,   586,   594,   603,   611,   620,
-     629,   642,   651,   675,   682,   689,   699,   707,   763,   771,
-     779,   787,   795,   805,   813,   821,   828
+     494,   503,   528,   560,   568,   586,   594,   604,   612,   622,
+     631,   644,   653,   683,   690,   697,   707,   715,   771,   779,
+     787,   795,   803,   813,   821,   829,   836
 };
 #endif
 
@@ -1961,8 +1961,8 @@ yyreduce:
 			errlog << "At line no: " << lines << " Undeclared variable " << yyvsp[0]->get_name() << endl << endl;
 			errors++;
 		}
-		else if (result->get_symbol_type() == "Array") {
-			errlog << "At line no: " << lines << " variable is of array type: " << yyvsp[0]->get_name() << endl << endl;
+		else if (result->get_symbol_type() != "Variable") {
+			errlog << "At line no: " << lines << " variable is of " << result->get_symbol_type() << " type: " << yyvsp[0]->get_name() << endl << endl;
 			errors++;
 			yyval = new symbol_info(yyvsp[0]->get_name(),"varbl");
 			yyval->set_data_type(result->get_data_type());
@@ -2066,12 +2066,13 @@ yyreduce:
 			outlog<<yyvsp[-2]->get_name()<<yyvsp[-1]->get_name()<<yyvsp[0]->get_name()<<endl<<endl;
 			
 			yyval = new symbol_info(yyvsp[-2]->get_name()+yyvsp[-1]->get_name()+yyvsp[0]->get_name(),"lgc_expr");
+			yyval->set_data_type("int");
 	     }
-#line 2071 "y.tab.c"
+#line 2072 "y.tab.c"
     break;
 
   case 47: /* rel_expression: simple_expression  */
-#line 604 "22141027.y"
+#line 605 "22141027.y"
                 {
 	    	outlog<<"At line no: "<<lines<<" rel_expression : simple_expression "<<endl<<endl;
 			outlog<<yyvsp[0]->get_name()<<endl<<endl;
@@ -2079,22 +2080,23 @@ yyreduce:
 			yyval = new symbol_info(yyvsp[0]->get_name(),"rel_expr");
 			yyval->set_data_type(yyvsp[0]->get_data_type());
 	    }
-#line 2083 "y.tab.c"
+#line 2084 "y.tab.c"
     break;
 
   case 48: /* rel_expression: simple_expression RELOP simple_expression  */
-#line 612 "22141027.y"
+#line 613 "22141027.y"
                 {
 	    	outlog<<"At line no: "<<lines<<" rel_expression : simple_expression RELOP simple_expression "<<endl<<endl;
 			outlog<<yyvsp[-2]->get_name()<<yyvsp[-1]->get_name()<<yyvsp[0]->get_name()<<endl<<endl;
 			
 			yyval = new symbol_info(yyvsp[-2]->get_name()+yyvsp[-1]->get_name()+yyvsp[0]->get_name(),"rel_expr");
+			yyval->set_data_type("int");
 	    }
-#line 2094 "y.tab.c"
+#line 2096 "y.tab.c"
     break;
 
   case 49: /* simple_expression: term  */
-#line 621 "22141027.y"
+#line 623 "22141027.y"
           {
 	    	outlog<<"At line no: "<<lines<<" simple_expression : term "<<endl<<endl;
 			outlog<<yyvsp[0]->get_name()<<endl<<endl;
@@ -2103,11 +2105,11 @@ yyreduce:
 			yyval->set_data_type(yyvsp[0]->get_data_type());
 			
 	      }
-#line 2107 "y.tab.c"
+#line 2109 "y.tab.c"
     break;
 
   case 50: /* simple_expression: simple_expression ADDOP term  */
-#line 630 "22141027.y"
+#line 632 "22141027.y"
                   {
 			if (yyvsp[0]->get_data_type() == "void" || yyvsp[0]->get_return_type() == "void") {
 				errlog << "At line no: " << lines << " operation on void type" << endl << endl;
@@ -2118,11 +2120,11 @@ yyreduce:
 			
 			yyval = new symbol_info(yyvsp[-2]->get_name()+yyvsp[-1]->get_name()+yyvsp[0]->get_name(),"simp_expr");
 	      }
-#line 2122 "y.tab.c"
+#line 2124 "y.tab.c"
     break;
 
   case 51: /* term: unary_expression  */
-#line 643 "22141027.y"
+#line 645 "22141027.y"
      {
 	    	outlog<<"At line no: "<<lines<<" term : unary_expression "<<endl<<endl;
 			outlog<<yyvsp[0]->get_name()<<endl<<endl;
@@ -2131,11 +2133,11 @@ yyreduce:
 			yyval->set_data_type(yyvsp[0]->get_data_type());
 			
 	 }
-#line 2135 "y.tab.c"
+#line 2137 "y.tab.c"
     break;
 
   case 52: /* term: term MULOP unary_expression  */
-#line 652 "22141027.y"
+#line 654 "22141027.y"
      {
 		if (yyvsp[0]->get_data_type() == "void" || yyvsp[0]->get_return_type() == "void") {
 				errlog << "At line no: " << lines << " operation on void type" << endl << endl;
@@ -2151,39 +2153,45 @@ yyreduce:
 				errors++;
 			}
 		}
+		else if (yyvsp[-1]->get_name() == "/") {
+			if (stoi(yyvsp[0]->get_name()) == 0) {
+				errlog << "At line no: " << lines << " Division by 0" << endl << endl;
+				errors++;
+			}
+		}
 	    	outlog<<"At line no: "<<lines<<" term : term MULOP unary_expression "<<endl<<endl;
 			outlog<<yyvsp[-2]->get_name()<<yyvsp[-1]->get_name()<<yyvsp[0]->get_name()<<endl<<endl;
 			
 			yyval = new symbol_info(yyvsp[-2]->get_name()+yyvsp[-1]->get_name()+yyvsp[0]->get_name(),"term");
 			
 	 }
-#line 2161 "y.tab.c"
+#line 2169 "y.tab.c"
     break;
 
   case 53: /* unary_expression: ADDOP unary_expression  */
-#line 676 "22141027.y"
+#line 684 "22141027.y"
                  {
 	    	outlog<<"At line no: "<<lines<<" unary_expression : ADDOP unary_expression "<<endl<<endl;
 			outlog<<yyvsp[-1]->get_name()<<yyvsp[0]->get_name()<<endl<<endl;
 			
 			yyval = new symbol_info(yyvsp[-1]->get_name()+yyvsp[0]->get_name(),"un_expr");
 	     }
-#line 2172 "y.tab.c"
+#line 2180 "y.tab.c"
     break;
 
   case 54: /* unary_expression: NOT unary_expression  */
-#line 683 "22141027.y"
+#line 691 "22141027.y"
                  {
 	    	outlog<<"At line no: "<<lines<<" unary_expression : NOT unary_expression "<<endl<<endl;
 			outlog<<"!"<<yyvsp[0]->get_name()<<endl<<endl;
 			
 			yyval = new symbol_info("!"+yyvsp[0]->get_name(),"un_expr");
 	     }
-#line 2183 "y.tab.c"
+#line 2191 "y.tab.c"
     break;
 
   case 55: /* unary_expression: factor  */
-#line 690 "22141027.y"
+#line 698 "22141027.y"
                  {
 	    	outlog<<"At line no: "<<lines<<" unary_expression : factor "<<endl<<endl;
 			outlog<<yyvsp[0]->get_name()<<endl<<endl;
@@ -2191,11 +2199,11 @@ yyreduce:
 			yyval = new symbol_info(yyvsp[0]->get_name(),"un_expr");
 			yyval->set_data_type(yyvsp[0]->get_data_type());
 	     }
-#line 2195 "y.tab.c"
+#line 2203 "y.tab.c"
     break;
 
   case 56: /* factor: variable  */
-#line 700 "22141027.y"
+#line 708 "22141027.y"
     {
 	    outlog<<"At line no: "<<lines<<" factor : variable "<<endl<<endl;
 		outlog<<yyvsp[0]->get_name()<<endl<<endl;
@@ -2203,11 +2211,11 @@ yyreduce:
 		yyval = new symbol_info(yyvsp[0]->get_name(),"fctr");
 		yyval->set_data_type(yyvsp[0]->get_data_type());
 	}
-#line 2207 "y.tab.c"
+#line 2215 "y.tab.c"
     break;
 
   case 57: /* factor: ID LPAREN argument_list RPAREN  */
-#line 708 "22141027.y"
+#line 716 "22141027.y"
         {
 		symbol_info* symbol = new symbol_info(yyvsp[-3]->get_name(), "ID");
 		symbol_info* result = sym_tbl->lookup(symbol);
@@ -2263,11 +2271,11 @@ yyreduce:
 
 		
 	}
-#line 2267 "y.tab.c"
+#line 2275 "y.tab.c"
     break;
 
   case 58: /* factor: LPAREN expression RPAREN  */
-#line 764 "22141027.y"
+#line 772 "22141027.y"
         {
 	   	outlog<<"At line no: "<<lines<<" factor : LPAREN expression RPAREN "<<endl<<endl;
 		outlog<<"("<<yyvsp[-1]->get_name()<<")"<<endl<<endl;
@@ -2275,11 +2283,11 @@ yyreduce:
 		yyval = new symbol_info("("+yyvsp[-1]->get_name()+")","fctr");
 		yyval->set_data_type(yyvsp[-1]->get_data_type());
 	}
-#line 2279 "y.tab.c"
+#line 2287 "y.tab.c"
     break;
 
   case 59: /* factor: CONST_INT  */
-#line 772 "22141027.y"
+#line 780 "22141027.y"
         {
 	    outlog<<"At line no: "<<lines<<" factor : CONST_INT "<<endl<<endl;
 		outlog<<yyvsp[0]->get_name()<<endl<<endl;
@@ -2287,11 +2295,11 @@ yyreduce:
 		yyval = new symbol_info(yyvsp[0]->get_name(),"fctr");
 		yyval->set_data_type(yyvsp[0]->get_data_type());
 	}
-#line 2291 "y.tab.c"
+#line 2299 "y.tab.c"
     break;
 
   case 60: /* factor: CONST_FLOAT  */
-#line 780 "22141027.y"
+#line 788 "22141027.y"
         {
 	    outlog<<"At line no: "<<lines<<" factor : CONST_FLOAT "<<endl<<endl;
 		outlog<<yyvsp[0]->get_name()<<endl<<endl;
@@ -2299,11 +2307,11 @@ yyreduce:
 		yyval = new symbol_info(yyvsp[0]->get_name(),"fctr");
 		yyval->set_data_type(yyvsp[0]->get_data_type());
 	}
-#line 2303 "y.tab.c"
+#line 2311 "y.tab.c"
     break;
 
   case 61: /* factor: variable INCOP  */
-#line 788 "22141027.y"
+#line 796 "22141027.y"
         {
 	    outlog<<"At line no: "<<lines<<" factor : variable INCOP "<<endl<<endl;
 		outlog<<yyvsp[-1]->get_name()<<"++"<<endl<<endl;
@@ -2311,11 +2319,11 @@ yyreduce:
 		yyval = new symbol_info(yyvsp[-1]->get_name()+"++","fctr");
 		yyval->set_data_type(yyvsp[-1]->get_data_type());
 	}
-#line 2315 "y.tab.c"
+#line 2323 "y.tab.c"
     break;
 
   case 62: /* factor: variable DECOP  */
-#line 796 "22141027.y"
+#line 804 "22141027.y"
         {
 	    outlog<<"At line no: "<<lines<<" factor : variable DECOP "<<endl<<endl;
 		outlog<<yyvsp[-1]->get_name()<<"--"<<endl<<endl;
@@ -2323,55 +2331,55 @@ yyreduce:
 		yyval = new symbol_info(yyvsp[-1]->get_name()+"--","fctr");
 		yyval->set_data_type(yyvsp[-1]->get_data_type());
 	}
-#line 2327 "y.tab.c"
+#line 2335 "y.tab.c"
     break;
 
   case 63: /* argument_list: arguments  */
-#line 806 "22141027.y"
+#line 814 "22141027.y"
                           {
 					outlog<<"At line no: "<<lines<<" argument_list : arguments "<<endl<<endl;
 					outlog<<yyvsp[0]->get_name()<<endl<<endl;
 						
 					yyval = new symbol_info(yyvsp[0]->get_name(),"arg_list");
 			  }
-#line 2338 "y.tab.c"
+#line 2346 "y.tab.c"
     break;
 
   case 64: /* argument_list: %empty  */
-#line 813 "22141027.y"
+#line 821 "22141027.y"
                           {
 					outlog<<"At line no: "<<lines<<" argument_list :  "<<endl<<endl;
 					outlog<<""<<endl<<endl;
 						
 					yyval = new symbol_info("","arg_list");
 			  }
-#line 2349 "y.tab.c"
+#line 2357 "y.tab.c"
     break;
 
   case 65: /* arguments: arguments COMMA logic_expression  */
-#line 822 "22141027.y"
+#line 830 "22141027.y"
                   {
 				outlog<<"At line no: "<<lines<<" arguments : arguments COMMA logic_expression "<<endl<<endl;
 				outlog<<yyvsp[-2]->get_name()<<","<<yyvsp[0]->get_name()<<endl<<endl;
 						
 				yyval = new symbol_info(yyvsp[-2]->get_name()+","+yyvsp[0]->get_name(),"arg");
 		  }
-#line 2360 "y.tab.c"
+#line 2368 "y.tab.c"
     break;
 
   case 66: /* arguments: logic_expression  */
-#line 829 "22141027.y"
+#line 837 "22141027.y"
               {
 				outlog<<"At line no: "<<lines<<" arguments : logic_expression "<<endl<<endl;
 				outlog<<yyvsp[0]->get_name()<<endl<<endl;
 						
 				yyval = new symbol_info(yyvsp[0]->get_name(),"arg");
 		  }
-#line 2371 "y.tab.c"
+#line 2379 "y.tab.c"
     break;
 
 
-#line 2375 "y.tab.c"
+#line 2383 "y.tab.c"
 
       default: break;
     }
@@ -2564,7 +2572,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 838 "22141027.y"
+#line 846 "22141027.y"
 
 
 int main(int argc, char *argv[])
