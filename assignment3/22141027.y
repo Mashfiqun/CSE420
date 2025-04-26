@@ -122,7 +122,7 @@ func_definition : type_specifier ID LPAREN {current_function_name = $2->get_name
 			outlog<<"At line no: "<<lines<<" func_definition : type_specifier ID LPAREN parameter_list RPAREN compound_statement "<<endl<<endl;
 			outlog<<$1->get_name()<<" "<<$2->get_name()<<"("+$5->get_name()+")\n"<<$8->get_name()<<endl<<endl;
 			
-			$$ = new symbol_info($1->get_name()+" "+$2->get_name()+"("+$5->get_name()+")\n"+$8->get_name(),"func_def");	
+			$$ = new symbol_info($1->get_name()+" "+$2->get_name()+"("+$5->get_name()+")\n"+$8->get_name(),"func_def");
 			
 			// The function definition is complete.
             // You can now insert necessary information about the function into the symbol table
@@ -464,6 +464,12 @@ statement : var_declaration
 	  }
 	  | PRINTLN LPAREN ID RPAREN SEMICOLON
 	  {
+			symbol_info* symbol = new symbol_info($3->get_name(), "ID");
+			symbol_info* result = sym_tbl->lookup(symbol);
+			if (result == NULL) {
+				errlog << "At line no: " << lines << " Undeclared variable: " << $3->get_name() << endl << endl;
+				errors++;
+			}
 	    	outlog<<"At line no: "<<lines<<" statement : PRINTLN LPAREN ID RPAREN SEMICOLON "<<endl<<endl;
 			outlog<<"printf("<<$3->get_name()<<");"<<endl<<endl; 
 			
@@ -565,6 +571,10 @@ expression : logic_expression
 				errlog << "At line no: " << lines << " Warning: Assignment of float value into variable of integer type "  << endl  << endl;
 				errors++;
 			}
+			else if ($3->get_data_type() == "void") {
+				errlog << "At line no: " << lines << " operation on void type "  << endl  << endl;
+				errors++;
+			}
 	    	outlog<<"At line no: "<<lines<<" expression : variable ASSIGNOP logic_expression "<<endl<<endl;
 			outlog<<$1->get_name()<<"="<<$3->get_name()<<endl<<endl;
 
@@ -618,6 +628,10 @@ simple_expression : term
 	      }
 		  | simple_expression ADDOP term 
 		  {
+			if ($3->get_data_type() == "void" || $3->get_return_type() == "void") {
+				errlog << "At line no: " << lines << " operation on void type" << endl << endl;
+				errors++;
+			}
 	    	outlog<<"At line no: "<<lines<<" simple_expression : simple_expression ADDOP term "<<endl<<endl;
 			outlog<<$1->get_name()<<$2->get_name()<<$3->get_name()<<endl<<endl;
 			
@@ -636,6 +650,20 @@ term :	unary_expression //term can be void because of un_expr->factor
 	 }
      |  term MULOP unary_expression
      {
+		if ($3->get_data_type() == "void" || $3->get_return_type() == "void") {
+				errlog << "At line no: " << lines << " operation on void type" << endl << endl;
+				errors++;
+		}
+		else if ($2->get_name() == "%") {
+			if ($1->get_data_type() != "int" || $3->get_data_type() != "int") {
+				errlog << "At line no: " << lines << " Modulus operator on non integer type" << endl << endl;
+				errors++;
+			}
+			else if (stoi($3->get_name()) == 0) {
+				errlog << "At line no: " << lines << " Modulus by 0" << endl << endl;
+				errors++;
+			}
+		}
 	    	outlog<<"At line no: "<<lines<<" term : term MULOP unary_expression "<<endl<<endl;
 			outlog<<$1->get_name()<<$2->get_name()<<$3->get_name()<<endl<<endl;
 			
@@ -721,6 +749,8 @@ factor	: variable
 					}
 				}
 			}
+			$$ = new symbol_info($1->get_name()+"("+$3->get_name()+")","fctr");
+			$$->set_data_type(result->get_return_type());
 		}
 	    outlog<<"At line no: "<<lines<<" factor : ID LPAREN argument_list RPAREN "<<endl<<endl;
 		outlog<<$1->get_name()<<"("<<$3->get_name()<<")"<<endl<<endl;
@@ -728,8 +758,7 @@ factor	: variable
 		
 
 
-		$$ = new symbol_info($1->get_name()+"("+$3->get_name()+")","fctr");
-		$$->set_data_type($1->get_return_type());
+		
 	}
 	| LPAREN expression RPAREN
 	{
