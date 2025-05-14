@@ -246,7 +246,8 @@ public:
     {
         // TODO: Implement this method
         // Should generate code for expression statements
-        if (expr) {
+        if (expr)
+        {
             return expr->generate_code(outcode, symbol_to_temp, temp_count, label_count);
         }
         return "";
@@ -320,6 +321,7 @@ public:
         label_count++;
         string label_else = "L" + to_string(label_count);
         label_count++;
+
         string cond_t = condition->generate_code(outcode, symbol_to_temp, temp_count, label_count);
         outcode << "if " << cond_t << " goto " << label_start << endl;
         outcode << "goto " << label_end << endl;
@@ -490,12 +492,12 @@ public:
 
             if (size > 0)
             {
-                outcode << "// Declaration " << type << " " << name << "[" << size << "]" << endl;
+                outcode << "// Declaration: " << type << " " << name << "[" << size << "]" << endl;
                 symbol_to_temp[name] = "t" + to_string(temp_count);
             }
             else
             {
-                outcode << "// Declaration " << type << " " << name << endl;
+                outcode << "// Declaration: " << type << " " << name << endl;
                 symbol_to_temp[name] = name;
             }
         }

@@ -8,58 +8,92 @@
 
 // Three Address Code
 
-// Function: int func()
-// Declaration int a
+// Function: int func(int a, int b)
 t0 = a
-t1 = 1
-t2 = t0 > t1
-if t2 goto L0
-goto L1
-L0:
-// Declaration float a
+t1 = b
+t2 = t0 + t1
+return t2
+
+// Function: int func2(float a, int b)
 t3 = a
-t4 = 1
-t5 = t3 > t4
-if t5 goto L3
+t4 = b
+t5 = t3 - t4
+return t5
+
+// Function: int main()
+// Declaration int a
+// Declaration int b
+// Declaration int c
+// Declaration int i
+// Declaration int e
+// Declaration int f[10]
+// Declaration int g[11]
+t6 = 1
+a = t6
+t7 = 2
+b = t7
+t8 = a
+param t8
+t9 = b
+param t9
+t10 = call func, 2
+c = t10
+// Declaration float d
+t11 = 0
+i = t11
+L0:
+t12 = i
+t13 = 10
+t14 = t12 > t13
+if t14 goto L1
+goto L2
+L1:
+// Declaration int a
+t15 = c
+t16 = i
+t17 = t15 + t16
+a = t17
+a = c
+t18 = i
+t19 = 1
+t20 = t18 + t19
+i = t20
+goto L0
+L2:
+t21 = c
+t22 = 10
+t23 = t21 > t22
+if t23 goto L3
 goto L4
 L3:
-// Declaration int a
-t6 = a
-t7 = 1
-t8 = t6 > t7
-if t8 goto L6
-goto L7
-L6:
-// Declaration float a
-t9 = a
-t10 = 1
-t11 = t9 > t10
-if t11 goto L9
-goto L10
-L9:
-// Declaration int a
-t12 = a
-t13 = 1
-t14 = t12 > t13
-if t14 goto L12
-goto L13
-L12:
-// Declaration float a
-goto L14
-L14:
-L13:
-goto L11
-L11:
-L10:
-goto L8
-L8:
-L7:
+// Declaration float b
+t24 = 1.0
+param t24
+t25 = 2
+param t25
+t26 = call func2, 2
+b = t26
+d = b
 goto L5
 L5:
 L4:
-goto L2
-L2:
-L1:
+L6:
+t27 = c
+t28 = 0
+t29 = t27 > t28
+if t29 goto L7
+goto L8
+L7:
+// Declaration int i
+t30 = c
+t31 = 1
+t32 = t30 - t31
+c = t32
+i = c
+goto L6
+L8:
+return c
+
 
 
 //========== END OF CODE ==========
